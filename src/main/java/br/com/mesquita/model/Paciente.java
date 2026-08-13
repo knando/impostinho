@@ -19,6 +19,11 @@ public class Paciente {
 	private String nome;
 	private String cpf;
 	private Date dataNascimento;
+	private String sexo;
+	private String endereco;
+	private String telefone;
+	private String alergia;
+	
 	
 	public Paciente() {}
 	
@@ -28,13 +33,19 @@ public class Paciente {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public Paciente(Long id, String nome, String cpf, Date dataNascimento) {
+	public Paciente(Long id, String nome, String cpf, Date dataNascimento, String sexo, String endereco,
+			String telefone, String alergia) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.alergia = alergia;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -59,6 +70,38 @@ public class Paciente {
 		return dataNascimento;
 	}
 	
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getAlergia() {
+		return alergia;
+	}
+
+	public void setAlergia(String alergia) {
+		this.alergia = alergia;
+	}
+
 	public String getDataNasc() {
 		LocalDate dataTemp = LocalDate.ofInstant(dataNascimento.toInstant(), ZoneId.systemDefault());
 		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
