@@ -1,0 +1,14 @@
+<html>
+	
+<head><title>Lista de pacientes</title></head>
+
+<body>
+	<h3>Lista de pacientes</h3>
+	<ul>
+		<li th:each="p: ${listaP}" th:text="|${p.nome}, nascido em ${p.dataNasc}, portador de CPF número (${p.cpf})|"></li>
+	</ul>
+	
+	Texto
+	</body>
+	
+	</html>

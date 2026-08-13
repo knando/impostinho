@@ -1,0 +1,14 @@
+<html>
+	
+<head></head>
+
+<body>
+	<h3>Horários de consulta</h3>
+	<ul>
+		<li th:each="consulta: ${listaConsulta}" th:text="|${consulta.horario}: ${consulta.paciente.nome} (${consulta.medico.nome})|"></li>
+	</ul>
+	
+	Texto
+	</body>
+	
+	</html>

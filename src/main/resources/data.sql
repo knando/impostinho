@@ -1,0 +1,2 @@
+insert into paciente(nome,data_nascimento,cpf) values ('Jorge Matos', '1991-04-11', '043.213.456-90');
+insert into paciente(nome,data_nascimento,cpf) values ('Jorge Ben Jor', '1973-09-22', '043.215.456-90');
