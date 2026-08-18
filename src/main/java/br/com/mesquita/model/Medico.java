@@ -1,5 +1,8 @@
 package br.com.mesquita.model;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Set;
 
@@ -33,32 +36,62 @@ public class Medico {
 	public Medico() {
 
 	}
-	public Medico(String cpf, String nome) {
-		this.cpf = cpf;
+	
+	public Medico(Date dataAdmissao, String nome, String cpf) {
+		this.dataAdmissao = dataAdmissao;
 		this.nome = nome;
+		this.cpf = cpf;
+	}
+	
+	public Medico(String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
 	}
 
+	public Medico(Long id, String nome, Set<String> especialidade, String cpf, Date dataAdmissao) {
+		this.id = id;
+		this.nome = nome;
+		this.especialidade = especialidade;
+		this.cpf = cpf;
+		this.dataAdmissao = dataAdmissao;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long Id) {
+		this.id = id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
+	
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataAdmissao() {
-		return dataAdmissao;
+	
+	public String getDataAdmissao() {
+		LocalDate dataTemp = LocalDate.ofInstant(dataAdmissao.toInstant(), ZoneId.systemDefault());
+		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
+	
 	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}

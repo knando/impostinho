@@ -8,7 +8,7 @@ values ('123.456.789-11', '2018-01-03', 'Marcos Paulo'),
 ('123.456.789-33', '2013-03-12', 'Carla Maria');
 
 insert into especialidade (medico_id, nome_especialidade)
-values (1, 'Fisioterapeuta'),
-(1, 'Neurocirurgião'),
-(2, 'Cardiologista'),
+values (1, 'Fisioterapia'),
+(1, 'Neurocirurgia'),
+(2, 'Cardiologia'),
 (2, 'Pediatria');
