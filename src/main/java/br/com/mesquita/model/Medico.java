@@ -66,4 +66,8 @@ public class Medico {
 	public boolean equals(Medico medico) {
 		return StringUtils.equals(this.getCpf(), medico.getCpf());
 	}
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
