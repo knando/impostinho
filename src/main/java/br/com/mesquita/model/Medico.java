@@ -66,4 +66,18 @@ public class Medico {
 	public boolean equals(Medico medico) {
 		return StringUtils.equals(this.getCpf(), medico.getCpf());
 	}
+	public Long getId() {
+		return id;
+	}
+	public Medico(Long id, String nome, Set<String> especialidade, String cpf, Date dataAdmissao) {
+		
+		this.id = id;
+		this.nome = nome;
+		this.especialidade = especialidade;
+		this.cpf = cpf;
+		this.dataAdmissao = dataAdmissao;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
