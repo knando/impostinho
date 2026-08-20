@@ -1,0 +1,25 @@
+<html>
+	
+<head><title>Cadastro de médico</title></head>
+	
+	<body>
+		<h3>Cadastro de médico</h3>
+		
+		<form th:action="@{salvar}" method="post" th:object="${medico}">
+			<p>
+			<label for="input-nome">Nome: </label>
+			<input type="text" id="input-nome" th:field="*{nome}">
+			<p>
+			<label for="input-cpf">cpf: </label>
+			<input type="text" id="input-cpf" th:field="*{cpf}">
+			<p>
+			<label for="input-data-admissao">Data de admissao: </label>
+			<input type="date" id="input-data-admissao" th:field="*{dataAdmissao}">
+			<p>
+			<label for="input-especialidade">especialidade: </label>
+			<input type="text" id="input-especialidade" th:field="*{especialidade}">
+			<p>
+			<input type="submit" value="Salvar">
+		</form>
+	</body>
+</html>
