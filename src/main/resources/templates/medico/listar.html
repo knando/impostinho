@@ -1,9 +1,9 @@
 <html>
 	
-<head><title>Lista de pacientes</title></head>
+<head><title>Lista de medicos</title></head>
 
 <body>
-	<h3>Lista de pacientes</h3>
+	<h3>Lista de medicos</h3>
 	<ul>
 		<li th:each="m: ${listaM}" th:text="|${m.nome}, nascido em ${m.dataAdmissao}, portador de CPF número (${m.cpf},especialidade: ${m.especialidade})|"></li>
 	</ul>
