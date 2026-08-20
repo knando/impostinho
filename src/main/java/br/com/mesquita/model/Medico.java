@@ -31,13 +31,13 @@ public class Medico {
 	@Column(name = "nome_especialidade")
 	private Set<String> especialidade;
 	private String cpf;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 
 	public Medico() {
 
 	}
 	
-	public Medico(Date dataAdmissao, String nome, String cpf) {
+	public Medico(LocalDate dataAdmissao, String nome, String cpf) {
 		this.dataAdmissao = dataAdmissao;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -48,7 +48,7 @@ public class Medico {
 		this.cpf = cpf;
 	}
 
-	public Medico(Long id, String nome, Set<String> especialidade, String cpf, Date dataAdmissao) {
+	public Medico(Long id, String nome, Set<String> especialidade, String cpf, LocalDate dataAdmissao) {
 		this.id = id;
 		this.nome = nome;
 		this.especialidade = especialidade;
@@ -60,7 +60,7 @@ public class Medico {
 		return id;
 	}
 	
-	public void setId(Long Id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -87,12 +87,19 @@ public class Medico {
 		this.cpf = cpf;
 	}
 	
-	public String getDataAdmissao() {
-		LocalDate dataTemp = LocalDate.ofInstant(dataAdmissao.toInstant(), ZoneId.systemDefault());
-		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	public String getCpfFormatada() {
+		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
 	
-	public void setDataAdmissao(Date dataAdmissao) {
+	public LocalDate getDataAdmissao() {
+		return dataAdmissao;
+	}
+	
+	public String getDataAdmissaoFormatada() {
+		return dataAdmissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	}
+	
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
