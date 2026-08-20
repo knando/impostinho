@@ -1,20 +1,15 @@
 package br.com.mesquita.controller;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Medico;
-
 import br.com.mesquita.service.MedicoService;
 
 @Controller
@@ -36,17 +31,13 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/cadastro")
-	String cadastrarMedicos() {
+	String cadastrarMedicos(Model model) {
+		model.addAttribute("medico", new Medico());
 		return "medico/cadastro";
 	}
 	
 	@PostMapping("/salvar")
-	String cadastrarMedicos(@RequestParam Map<String, String> data) {
-		Medico medico = new Medico();
-		medico.setNome(data.get("nome"));
-		medico.setCpf(data.get("cpf"));
-		medico.setDataAdmissao(Date.valueOf(data.get("data-admissao")));
-		IO.println(medico.toString());
+	String cadastrarMedicos(@ModelAttribute Medico medico) {
 		medicoService.salvar(medico);
 		return "redirect:/medico/listar";
 	}

@@ -5,16 +5,16 @@
 <body>
 	<h3>Cadastro de medico</h3>
 	
-	<form action="salvar" method="post">
+	<form th:action="@{salvar}" method="post" th:object="${medico}" >
 		<p>
 		<label for="input-nome">Nome: </label>
-		<input type="text" id="input-nome" name="nome" placeholder="Digite nome">
+		<input type="text" id="input-nome" th:field="*{nome}" placeholder="Digite nome">
 		<p>
 		<label for="input-cpf">CPF: </label>
-		<input type="text" id="input-cpf" name="cpf" maxlength="14" placeholder="Digite CPF">
+		<input type="text" id="input-cpf" th:field="*{cpf}" maxlength="14" placeholder="Digite CPF">
 		<p>
 		<label for="input-data-admissao">Data de Admissão: </label>
-		<input type="date" id="input-data-admissao" name="data-admissao" placeholder="Digite uma data">
+		<input type="date" id="input-data-admissao" th:field="*{dataAdmissao}" placeholder="Digite uma data">
 		<p>
 		<input type="submit" value="Salvar">
 	</form>

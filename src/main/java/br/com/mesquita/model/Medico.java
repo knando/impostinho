@@ -1,5 +1,6 @@
 package br.com.mesquita.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,7 +29,7 @@ public class Medico {
 	@Column(name = "nome_especialidade")
 	private Set<String> especialidade;
 	private String cpf;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 
 	public Medico() {
 
@@ -56,11 +57,11 @@ public class Medico {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataAdmissao() {
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
-	public void setDataAdmissao(Date dataAdmissao) {
-		this.dataAdmissao = dataAdmissao;
+	public void setDataAdmissao(LocalDate date) {
+		this.dataAdmissao = date;
 	}
 
 	public boolean equals(Medico medico) {
