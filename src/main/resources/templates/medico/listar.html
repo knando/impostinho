@@ -5,10 +5,10 @@
 <body>
 	<h3>Lista de Medico</h3>
 	<ul>
-		<li th:each="m: ${listaP}" th:text="|${p.nome}, nascido em ${p.dataNasc}, portador de CPF número (${p.cpf})|"></li>
+		<li th:each="m: ${listaM}" th:text="|${m.nome}, Admitido em ${m.dataAdmissao}, portador de CPF número (${m.cpf}),especialidade: ${m.especialidade} |"></li>
 	</ul>
 	
-	Texto
+	
 	</body>
 	
 	</html>

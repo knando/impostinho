@@ -1,6 +1,6 @@
 package br.com.mesquita.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 import org.thymeleaf.util.StringUtils;
@@ -28,7 +28,7 @@ public class Medico {
 	@Column(name = "nome_especialidade")
 	private Set<String> especialidade;
 	private String cpf;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 
 	public Medico() {
 
@@ -56,10 +56,10 @@ public class Medico {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataAdmissao() {
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
-	public void setDataAdmissao(Date dataAdmissao) {
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
@@ -69,7 +69,7 @@ public class Medico {
 	public Long getId() {
 		return id;
 	}
-	public Medico(Long id, String nome, Set<String> especialidade, String cpf, Date dataAdmissao) {
+	public Medico(Long id, String nome, Set<String> especialidade, String cpf, LocalDate dataAdmissao) {
 		
 		this.id = id;
 		this.nome = nome;
