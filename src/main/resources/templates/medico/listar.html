@@ -1,0 +1,21 @@
+<html>
+
+<head>
+	<title>Lista de médicos</title>
+</head>
+
+<body>
+
+	<h3>Lista de médicos</h3>
+
+	<ul>
+
+		<li th:each="medicos: ${listaM}"
+			th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
+		</li>
+
+	</ul>
+
+</body>
+
+</html>

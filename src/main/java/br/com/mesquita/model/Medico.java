@@ -1,5 +1,8 @@
 package br.com.mesquita.model;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,7 +31,7 @@ public class Medico {
 	@Column(name = "nome_especialidade")
 	private Set<String> especialidade;
 	private String cpf;
-	private Date dataAdmissao;
+	private LocalDate dataAdmissao;
 
 	public Medico() {
 
@@ -47,8 +50,17 @@ public class Medico {
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
+	/**
+	 * @param especialidade
+	 */
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getCpf() {
 		return cpf;
@@ -56,10 +68,15 @@ public class Medico {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataAdmissao() {
+	
+	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
-	public void setDataAdmissao(Date dataAdmissao) {
+	public String getDataAdmissaoFormatada() {
+		return dataAdmissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	}
+	
+	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
 
