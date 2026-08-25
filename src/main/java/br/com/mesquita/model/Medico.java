@@ -1,9 +1,7 @@
 package br.com.mesquita.model;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Set;
 
 import org.thymeleaf.util.StringUtils;
@@ -32,7 +30,10 @@ public class Medico {
 	private Set<String> especialidade;
 	private String cpf;
 	private LocalDate dataAdmissao;
-
+	private LocalDate dataDemissao;
+	@Column(nullable = false)
+	public boolean ativo = true;
+	
 	public Medico() {
 
 	}
@@ -50,9 +51,6 @@ public class Medico {
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
-	/**
-	 * @param especialidade
-	 */
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
 	}
@@ -68,7 +66,6 @@ public class Medico {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
@@ -79,8 +76,23 @@ public class Medico {
 	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
-
+	public LocalDate getDataDemissao() {
+		return dataDemissao;
+	}
+	public String getDataDemissaoFormatada() {
+		return dataDemissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	}
+	
+	public void setDataDemissao(LocalDate dataDemissao) {
+		this.dataDemissao = dataDemissao;
+	}
 	public boolean equals(Medico medico) {
 		return StringUtils.equals(this.getCpf(), medico.getCpf());
+	}
+	public boolean getAtivo() {
+		return ativo;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 }

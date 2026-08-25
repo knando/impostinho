@@ -1,18 +1,13 @@
 package br.com.mesquita.controller;
 
-import java.sql.Date;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.service.MedicoService;
@@ -46,5 +41,10 @@ public class MedicoController {
 	   medicoService.salvar(medico);
 	   return "redirect:/medico/listar";
 	}
-
+	
+	@PostMapping("/demitir") 
+	String demitirMedicos(@ModelAttribute int id) {
+	   medicoService.demitir(id);
+	   return "redirect:/medico/listar";
+	}
 }

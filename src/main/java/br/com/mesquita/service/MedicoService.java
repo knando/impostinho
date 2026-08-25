@@ -20,6 +20,11 @@ public class MedicoService {
 		return medicoRepository.findAll();
 	}
 	
+	public void demitir(int index) {
+		List<Medico> listaMedico = listar();
+		listaMedico.get(index).ativo = false;
+	}
+	
 	public Long salvar(Medico medico) {
 		return medicoRepository.save(medico).getId();
 	}

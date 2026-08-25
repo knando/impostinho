@@ -11,11 +11,28 @@
 	<ul>
 
 		<li th:each="medicos: ${listaM}"
-			th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
+			th:text="|${medicos.nome}, com ID: ${medicos.id} tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
 		</li>
-
 	</ul>
-
+	
+	<form th:action="@{demitir}" th:object="medico" method="post" >
+		
+		<input type="text" id="id" th:field="*{id}" placeholder="Digite o id do médico que será demitido">
+		<input type="submit" value="Demitir">
+		
+	</form>
+	
+	<h3>Lista de demitidos</h3>
+		
+	<ul>	
+		
+		<li th:each="medicos: ${listaM}"
+			th:if="${medicos.ativo == false}"
+					th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}, Data de demissão: ${medicos.DataDemissaoFormatada}|">
+		</li>
+		
+	</ul>
+	
 </body>
 
 </html>
