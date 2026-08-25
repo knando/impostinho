@@ -1,14 +1,41 @@
-<html>
-	
-<head><title>Lista de pacientes</title></head>
+<!DOCTYPE html>
 
-<body>
-	<h3>Lista de pacientes</h3>
-	<ul>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Listagem de Pacientes</title>
+		<link rel="stylesheet" th:href="@{/paciente/style.css}">
+	</head>
+	
+	<body> 
+		
+		<h2>Lista de pacientes</h2>
+		
+		<table> 
+			<tr>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Cpf</th>
+				<th>Data de nascimento</th>
+				<th>Endereço</th>
+				
+			</tr>
+			<tr th:each="p : ${listaP}">
+				<td th:text="${p.nome}"></td>	
+				<td th:text="${p.cpf}"></td>
+			</tr>
+				
+				
+			</tr>
+		</table>
+		
+		
+		
+		
+		<ul>
 		<li th:each="p: ${listaP}" th:text="|${p.nome}, nascido em ${p.dataNasc}, portador de CPF número (${p.cpf})|"></li>
-	</ul>
-	
-	Texto
+		</ul>
+		
 	</body>
-	
-	</html>
+</html>
+
