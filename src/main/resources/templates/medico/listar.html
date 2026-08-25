@@ -11,7 +11,7 @@
 	<ul>
 
 		<li th:each="medicos: ${listaM}"
-			th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
+			th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpfFormatada}|">
 		</li>
 
 	</ul>
