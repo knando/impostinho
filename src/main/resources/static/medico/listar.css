@@ -1,0 +1,25 @@
+.barra{
+	background-color: rgb(183, 247, 191);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+}
+
+.caixa{
+	margin-top: 65px;
+}
+
+.caixa-dois{
+	border-width: 4px solid;
+}
+
+
+body{
+	background-color: antiquewhite;
+}
+
+h3{
+	color: red;
+}
