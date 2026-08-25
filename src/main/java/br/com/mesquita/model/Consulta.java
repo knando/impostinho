@@ -1,22 +1,41 @@
 package br.com.mesquita.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
+@Entity
 public class Consulta {
-	private Date horario;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private LocalDateTime horario;
+	
+	@ManyToOne
+	@JoinColumn(name = "medico_id", nullable = false)
 	private Medico medico;
+	
+	@ManyToOne
+	@JoinColumn(name = "paciente_id", nullable = false)
 	private Paciente paciente;
 	
-	public Consulta(Date horario, Medico medico, Paciente paciente) {
+	public Consulta() {
+
+	}
+	public Consulta(LocalDateTime horario, Medico medico, Paciente paciente) {
 		this.horario = horario;
 		this.medico = medico;
 		this.paciente = paciente;
 	}
 	
-	public Date getHorario() {
+	public LocalDateTime getHorario() {
 		return horario;
 	}
-	public void setHorario(Date horario) {
+	public void setHorario(LocalDateTime horario) {
 		this.horario = horario;
 	}
 	public Medico getMedico() {
