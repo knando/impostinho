@@ -1,14 +1,56 @@
-<html>
-	
-<head><title>Lista de pacientes</title></head>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listagem de Pacientes</title>
+	<link rel="stylesheet" th:href="@{/paciente/style.css}">
+</head>
 
 <body>
-	<h3>Lista de pacientes</h3>
-	<ul>
-		<li th:each="p: ${listaP}" th:text="|${p.nome}, nascido em ${p.dataNasc}, portador de CPF número (${p.cpf})|"></li>
-	</ul>
-	
-	Texto
-	</body>
-	
-	</html>
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+
+	<main class="conteudo-principal">
+		<h2>Lista de Pacientes</h2>
+
+		<div class="tabela-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Sexo</th>
+						<th>Cpf</th>
+						<th>Data de nascimento</th>
+						<th>Endereço</th>
+						<th>Telefone</th>
+						<th>Alergias</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="p : ${listaP}">
+						<td th:text="${p.nome}"></td>
+						<td th:text="${p.sexo}"></td>
+						<td th:text="${p.cpfFormatada}"></td>
+						<td th:text="${#dates.format(p.dataNascimento, 'dd/MM/yyyy')}"></td>
+						<td th:text="${p.endereco}"></td>
+						<td
+							th:text="${#strings.substring(p.telefone, 0, 5) + '-' + #strings.substring(p.telefone, 5, 9)}">
+						</td>
+						<td th:text="${p.alergia}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+	</footer>
+</body>
+
+</html>

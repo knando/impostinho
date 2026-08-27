@@ -1,21 +1,42 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
 	<title>Lista de médicos</title>
+	<link rel="stylesheet" th:href="@{/medico/listar.css}">
 </head>
 
 <body>
 
-	<h3>Lista de médicos</h3>
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
 
-	<ul>
 
-		<li th:each="medicos: ${listaM}"th:if="${medicos.ativo == true}"
-			th:text="|${medicos.nome}, com ID: ${medicos.id} tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
-		</li>
-	</ul>
-	
-	<form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
+	<div class="caixa">
+		<h2>Lista de médicos</h2>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Especialidade</th>
+				<th>Data de admissão</th>
+				<th>Cpf</th>
+			</tr>
+			<tr th:each="medicos : ${listaM}">
+				<td th:text="${medicos.nome}"></td>
+				<td th:text="${medicos.especialidade}"></td>
+				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
+				<td th:text="${medicos.cpfFormatada}"></td>
+			</tr>
+		</table>
+
+	</div>
+  
+  <form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
 		
 		<label>Demitir médico</label>
 		
@@ -31,18 +52,11 @@
 		
 		<button type="submit">Demitir</button>
 	</form>
-	
-	<h3>Lista de demitidos</h3>
-		
-	<ul>	
-		
-		<li th:each="medicos: ${listaM}"
-			th:if="${medicos.ativo == false}"
-					th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}, Data de demissão: ${medicos.DataDemissaoFormatada}|">
-		</li>
-		
-	</ul>
-	
+ 
+	<footer class="rodape">
+			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+    </footer>
+
 </body>
 
 </html>
