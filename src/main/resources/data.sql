@@ -12,17 +12,10 @@ values ('ovo,nozes','Jorge Matos', '1991-04-11', '043.213.456-90','Porto Alegre'
  ('leite,soja','Airton Renan', '2007-11-01', '820.721.590-91','Maceió','m','928124106'),
  ('nozes,latex','Gabi Thales', '2009-06-22', '080.386.780-87','Pelotas','f','922046536');
 
-insert into medico(cpf, data_admissao, nome)
-values ('123.456.789-11', '2018-01-03', 'Marcos Paulo'),
-('123.456.789-33', '2013-03-12', 'Carla Maria'),
-('584.679.714-84', '2002-01-15', 'Rogerio Lima'),
-('048.501.290-13', '1995-10-11', 'Bárbara Alves'),
-('559.277.250-58', '2001-05-30', 'Fernanda Firmino'),
-('459.184.880-90', '2000-05-26', 'Mário Elder'),
-('936.059.990-50', '2013-06-24', 'Geraldo Assunção'),
-('428.707.090-99', '2013-07-02', 'Mônica Cristina'),
-('058.489.320-50', '2005-01-20', 'Mayara Esperança'),
-('987.743.680-95', '2006-03-19', 'Thiago Xavier');
+insert into medico(cpf, data_admissao, nome, ativo)
+values ('123.456.789-11', '2018-01-03', 'Marcos Paulo', 'true'),
+('123.456.789-33', '2013-03-12', 'Carla Maria', 'true'),
+('987.743.680-95', '2006-03-19', 'Thiago Xavier', 'true');
 
 insert into medico(cpf, data_admissao, nome, data_demissao, ativo)
 values ('541.555.560-90', '2013-08-05', 'Núbia Lara', '2018-01-03', 'false'),
@@ -32,25 +25,7 @@ insert into especialidade(medico_id, nome_especialidade)
 values (1, 'Fisioterapeuta'),
 (1, 'Neurocirurgião'),
 (2, 'Cardiologista'),
-(2, 'Pediatria'),
-(3, 'Anestesiologia'),
-(3, 'Nutrologia'),
-(4, 'Infectologia'),
-(4, 'Acupuntura'),
-(5, 'Anestesiologia'),
-(5, 'Geriatria'),
-(6, 'Oftalmologia'),
-(6, 'Cardiologista'),
-(7,'Coloproctologia'),
-(7, 'Gastroenterologia'),
-(8, 'Geriatria'),
-(8, 'Radioterapia'),
-(9, 'Psiquiatria'),
-(10, 'Mastologia'),
-(10, 'Radioterapia'),
-(11, 'Homeopatia'),
-(11, 'Dermatologia'),
-(12, 'Urologia');
+(2, 'Pediatria');
 
 insert into consulta (horario, medico_id, paciente_id)
 values ('2026-08-25 09:00:00', 1, 1),

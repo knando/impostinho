@@ -27,10 +27,17 @@ public class MedicoController {
 	
 	@GetMapping("/listar")
 	String listarMedicos(Model model) {
-		List<Medico> listaMedico = medicoService.listar();
+		List<Medico> listaMedico = medicoService.buscaPorStatus(true);
 		model.addAttribute("listaM", listaMedico);
 		model.addAttribute("medico", new Medico());
-		System.out.println(listaMedico.get(0).getEspecialidade());
+		return "medico/listar";
+	}
+	
+	@GetMapping("/listar/inativo")
+	String listarMedicosInativos(Model model) {
+		List<Medico> listaMedico = medicoService.buscaPorStatus(false);
+		model.addAttribute("listaM", listaMedico);
+		model.addAttribute("medico", new Medico());
 		return "medico/listar";
 	}
 	

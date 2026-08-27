@@ -26,7 +26,7 @@
 				<th>Data de admissão</th>
 				<th>Cpf</th>
 			</tr>
-			<tr th:each="medicos : ${listaM}" th:if="${medicos.ativo == true}">
+			<tr th:each="medicos : ${listaM}">
 				<td th:text="${medicos.nome}"></td>
 				<td th:text="${medicos.especialidade}"></td>
 				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
@@ -54,28 +54,6 @@
 		<button type="submit">Demitir</button>
 	</form>
  </div>
-	
-	<div class="caixa">
-			<h2>Lista de médicos demitidos</h2>
-
-			<table>
-				<tr>
-					<th>Nome</th>
-					<th>Especialidade</th>
-					<th>Data de admissão</th>
-					<th>Cpf</th>
-					<th>Date de demissão</th>
-				</tr>
-				<tr th:each="medicos : ${listaM}" th:if="${medicos.ativo == false}">
-					<td th:text="${medicos.nome}"></td>
-					<td th:text="${medicos.especialidade}"></td>
-					<td th:text="${medicos.DataAdmissaoFormatada}"></td>
-					<td th:text="${medicos.cpfFormatada}"></td>
-					<td th:text="${medicos.DataDemissaoFormatada}"></td>
-				</tr>
-			</table>
-
-		</div>
 	
 	<footer class="rodape">
 			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>

@@ -35,4 +35,8 @@ public class MedicoService {
 		}
 		return medicoRepository.save(medico).getId();
 	}
+
+	public List<Medico> buscaPorStatus(boolean estaAtivo) {
+		return medicoRepository.findAllByAtivo(estaAtivo);
+	}
 }
