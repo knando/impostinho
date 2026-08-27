@@ -101,6 +101,10 @@ public class Paciente {
 	public void setAlergia(String alergia) {
 		this.alergia = alergia;
 	}
+	
+	public String getCpfFormatada() {
+		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+	}
 
 	public String getDataNasc() {
 		LocalDate dataTemp = LocalDate.ofInstant(dataNascimento.toInstant(), ZoneId.systemDefault());
