@@ -1,24 +1,52 @@
-<html>
+<!DOCTYPE html> 
+<html xmlns:th="http://thymeleaf.org">
 	
-<head><title>Cadastro de paciente</title></head>
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Pacientes</title>
+	<link rel="stylesheet" th:href="@{/paciente/cadastro.css}">	
+</head>
+
 
 <body>
-	<h3>Cadastro de paciente</h3>
 	
-	<form action="salvar" method="post">
-		<p>
-		<label for="input-nome">Nome: </label>
-		<input type="text" id="input-nome" name="nome" placeholder="Digite nome">
-		<p>
-		<label for="input-cpf">CPF: </label>
-		<input type="text"  id="input-cpf" name="cpf" maxlength="11" placeholder="Digite CPF">
-		<p>
-		<label for="input-data-nascimento">Data de nascimento: </label>
-		<input type="date" id="input-data-nascimento" name="data-nascimento" placeholder="Digite uma data">
-		<p>
-		<input type="submit" value="Salvar">
-	</form>
+	<header class="barra">
+		<div class="barra-conteudo">
+		  <div class="logo"></div>	
+		  <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>	
+		</div>
+		
+	</header>
+	
+	<main class="conteudo-principal">
+		
+		<h2 class="titulo">Cadastro de paciente</h2>
+		
+		<div class="formulario-conteiner">
+			
+			<form action="salvar" method="post">
+							<p>
+							<label for="input-nome">Nome: </label>
+							<input type="text" id="input-nome" name="nome" placeholder="Digite nome">
+							<p>
+							<label for="input-cpf">CPF: </label>
+							<input type="text"  id="input-cpf" name="cpf" maxlength="11" placeholder="Digite CPF">
+							<p>
+							<label for="input-data-nascimento">Data de nascimento: </label>
+							<input type="date" id="input-data-nascimento" name="data-nascimento" placeholder="Digite uma data">
+							<p>
+							<input type="submit" value="Salvar">
+						</form>
+						
+		</div>
+			
 
+	</main>
+	
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+	</footer>
+	
 </body>
 	
 </html>
