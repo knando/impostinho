@@ -8,21 +8,37 @@
 
 <body>
 
-	<div class="barra"></div>
-	
-	<div class="caixa">
-		<div class="caixa-dois">
-			<h3>Lista de médicos</h3>
-
-					<ul>
-			           <li th:each="medicos: ${listaM}"
-						   th:text="|${medicos.nome}, tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
-						</li>
-
-					</ul>
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
+	</header>
+
+
+	<div class="caixa">
+		<h2>Lista de médicos</h2>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Especialidade</th>
+				<th>Data de admissão</th>
+				<th>Cpf</th>
+			</tr>
+			<tr th:each="medicos : ${listaM}">
+				<td th:text="${medicos.nome}"></td>
+				<td th:text="${medicos.especialidade}"></td>
+				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
+				<td th:text="${medicos.cpf}"></td>
+			</tr>
+		</table>
+
 	</div>
-	
+ 
+	<footer class="rodape">
+			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+    </footer>
 
 </body>
 
