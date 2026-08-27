@@ -79,6 +79,10 @@ public class Medico {
 	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
+	
+	public String getCpfFormatada() {
+		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+	}
 
 	public boolean equals(Medico medico) {
 		return StringUtils.equals(this.getCpf(), medico.getCpf());
