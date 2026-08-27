@@ -2,12 +2,15 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.service.MedicoService;
@@ -26,6 +29,7 @@ public class MedicoController {
 	String listarMedicos(Model model) {
 		List<Medico> listaMedico = medicoService.listar();
 		model.addAttribute("listaM", listaMedico);
+		model.addAttribute("medico", new Medico());
 		System.out.println(listaMedico.get(0).getEspecialidade());
 		return "medico/listar";
 	}
@@ -43,8 +47,8 @@ public class MedicoController {
 	}
 	
 	@PostMapping("/demitir") 
-	String demitirMedicos(@ModelAttribute int id) {
-	   medicoService.demitir(id);
+	String demitirMedicos(@ModelAttribute Medico medico) {
+       medicoService.demitir(medico.getId());
 	   return "redirect:/medico/listar";
 	}
 }

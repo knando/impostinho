@@ -10,16 +10,26 @@
 
 	<ul>
 
-		<li th:each="medicos: ${listaM}"
+		<li th:each="medicos: ${listaM}"th:if="${medicos.ativo == true}"
 			th:text="|${medicos.nome}, com ID: ${medicos.id} tem especialidade em: ${medicos.especialidade}, com data admissional: ${medicos.DataAdmissaoFormatada}, portador do CPF: ${medicos.cpf}|">
 		</li>
 	</ul>
 	
-	<form th:action="@{demitir}" th:object="medico" method="post" >
+	<form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
 		
-		<input type="text" id="id" th:field="*{id}" placeholder="Digite o id do médico que será demitido">
-		<input type="submit" value="Demitir">
+		<label>Demitir médico</label>
 		
+		<select id="medicos" th:field="*{id}">
+		
+			<option value="">Selecione o médico</option>
+			<option th:each="medicos : ${listaM}"
+					th:if="${medicos.ativo == true}" 
+			        th:value="${medicos.id}" 
+			        th:text="${medicos.nome}">Nome do médico</option>
+			
+		</select>
+		
+		<button type="submit">Demitir</button>
 	</form>
 	
 	<h3>Lista de demitidos</h3>
