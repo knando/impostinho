@@ -35,7 +35,7 @@
 					<tr th:each="p : ${listaP}">
 						<td th:text="${p.nome}"></td>
 						<td th:text="${p.sexo}"></td>
-						<td th:text="${p.cpf}"></td>
+						<td th:text="${p.cpfFormatada}"></td>
 						<td th:text="${#dates.format(p.dataNascimento, 'dd/MM/yyyy')}"></td>
 						<td th:text="${p.endereco}"></td>
 						<td
