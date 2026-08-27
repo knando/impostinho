@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: darkseagreen;
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    padding-top: 75px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; 
+}
+
+.barra {
+    background-color: #1c331c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.logo-texto {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo-texto span {
+    color: rgb(181, 245, 137);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.simbolo {
+    color: #4caf50;
+    margin-right: 4px;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.rodape {
+    background-color: #1c331c;
+    color: #a5c4a5;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.85rem;
+    margin-top: auto;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.formulario-conteiner {
+	width: 90%;
+	   max-width: 1200px;
+	   overflow-x: auto;
+	   margin: 0 auto;
+	   border-radius: 8px;
+	   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	   background-color: white;
+}
+
+.titulo {
+	    text-align: center;
+	    color: #1c331c; 
+	    font-size: 2.2rem;
+	    font-weight: bold;
+	    margin-top: 10px;
+	    margin-bottom: 20px;
+}
