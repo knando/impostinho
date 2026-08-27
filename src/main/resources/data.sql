@@ -12,3 +12,8 @@ values (1, 'Fisioterapeuta'),
 (1, 'Neurocirurgião'),
 (2, 'Cardiologista'),
 (2, 'Pediatria');
+
+insert into consulta (horario, medico_id, paciente_id)
+values ('2026-08-25 09:00:00', 1, 1),
+('2026-08-25 10:30:00', 1, 1),
+('2026-08-26 14:00:00', 2, 3);
