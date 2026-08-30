@@ -1,52 +1,80 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-	
+
 <head>
 	<meta charset="UTF-8">
 	<title>Cadastro de Pacientes</title>
-	<link rel="stylesheet" th:href="@{/paciente/cadastro.css}">	
+	<link rel="stylesheet" th:href="@{/paciente/cadastro.css}">
 </head>
 
-
 <body>
-	
+
 	<header class="barra">
 		<div class="barra-conteudo">
-		  <div class="logo"></div>	
-		  <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>	
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
-		
 	</header>
-	
+
 	<main class="conteudo-principal">
-		
-		<h2 class="titulo">Cadastro de paciente</h2>
-		
+
 		<div class="formulario-conteiner">
-			
+
+			<h2 class="titulo-form">Cadastro de Paciente</h2>
+
 			<form action="salvar" method="post">
-							<p>
-							<label for="input-nome">Nome: </label>
-							<input type="text" id="input-nome" name="nome" placeholder="Digite nome">
-							<p>
-							<label for="input-cpf">CPF: </label>
-							<input type="text"  id="input-cpf" name="cpf" maxlength="11" placeholder="Digite CPF">
-							<p>
-							<label for="input-data-nascimento">Data de nascimento: </label>
-							<input type="date" id="input-data-nascimento" name="data-nascimento" placeholder="Digite uma data">
-							<p>
-							<input type="submit" value="Salvar">
-						</form>
-						
+
+				<div class="conteudo-form">
+
+					<div class="campo">
+						<label for="input-nome">Nome: </label>
+						<input type="text" id="input-nome" name="nome" placeholder="Digite o nome">
+					</div>
+
+					<div class="campo">
+						<label for="input-cpf">CPF: </label>
+						<input type="text" id="input-cpf" name="cpf" maxlength="11" placeholder="Digite o CPF">
+					</div>
+
+					<div class="campo">
+						<label for="input-sexo">Sexo: </label>
+						<input type="text" id="input-sexo" name="sexo" placeholder="Digite o sexo">
+					</div>
+
+					<div class="campo">
+						<label for="input-data-nascimento">Data de nascimento: </label>
+						<input type="date" id="input-data-nascimento" name="data-nascimento"
+							placeholder="Digite uma data">
+					</div>
+
+					<div class="campo">
+						<label for="input-telefone">Telefone: </label>
+						<input type="tel" id="input-telefone" name="telefone" placeholder="Digite o telefone">
+					</div>
+
+					<div class="campo">
+						<label for="input-endereco">Endereço: </label>
+						<input type="text" id="input-endereco" name="endereco" placeholder="Digite o endereço">
+					</div>
+
+					<div class="campo campo-largura-total">
+						<label for="input-alergias">Alergias:</label>
+						<input type="text" id="input-alergias" name="alergias" placeholder="Digite as alergias">
+					</div>
+
+				</div>
+
+				<button type="submit">Salvar</button>
+			</form>
+
 		</div>
-			
 
 	</main>
-	
+
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
 	</footer>
-	
+
 </body>
-	
+
 </html>
