@@ -72,8 +72,15 @@ public class Medico {
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
+	
 	public String getDataAdmissaoFormatada() {
-		return dataAdmissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	    if (this.dataAdmissao == null) {
+	        return "N/A"; 
+	    }
+	    
+	    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	    
+	    return this.dataAdmissao.format(formato);
 	}
 	
 	public void setDataAdmissao(LocalDate dataAdmissao) {
