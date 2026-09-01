@@ -32,7 +32,25 @@ insert into especialidade(medico_id, nome_especialidade)
 values (1, 'Fisioterapeuta'),
 (1, 'Neurocirurgião'),
 (2, 'Cardiologista'),
-(2, 'Pediatria');
+(2, 'Pediatria'),
+(3, 'Anestesiologia'),
+(3, 'Nutrologia'),
+(4, 'Infectologia'),
+(4, 'Acupuntura'),
+(5, 'Anestesiologia'),
+(5, 'Geriatria'),
+(6, 'Oftalmologia'),
+(6, 'Cardiologista'),
+(7,'Coloproctologia'),
+(7, 'Gastroenterologia'),
+(8, 'Geriatria'),
+(8, 'Radioterapia'),
+(9, 'Psiquiatria'),
+(10, 'Mastologia'),
+(10, 'Radioterapia'),
+(11, 'Homeopatia'),
+(11, 'Dermatologia'),
+(12, 'Urologia');
 
 insert into consulta (horario, medico_id, paciente_id)
 values ('2026-08-25 09:00:00', 1, 1),
