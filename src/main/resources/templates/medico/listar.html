@@ -31,7 +31,7 @@
 				<td th:text="${medicos.nome}"></td>
 				<td th:text="${medicos.especialidade}"></td>
 				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
-				<td th:text="${medicos.cpf}"></td>
+				<td th:text="${medicos.cpfFormatada}"></td>
 				<td>
 					<!-- Botão de Editar passando o ID do médico -->
 					<a th:href="@{/medico/editar(id=${medicos.id})}" class="btn-editar">Editar</a>
@@ -40,7 +40,26 @@
 		</table>
 
 	</div>
-
+  
+	<div class="caixa">
+  <form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
+		
+		<label>Demitir médico</label>
+		
+		<select id="medicos" th:field="*{id}">
+		
+			<option value="">Selecione o médico</option>
+			<option th:each="medicos : ${listaM}"
+					th:if="${medicos.ativo == true}" 
+			        th:value="${medicos.id}" 
+			        th:text="${medicos.nome}">Nome do médico</option>
+			
+		</select>
+		
+		<button type="submit">Demitir</button>
+	</form>
+ </div>
+	
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
 	</footer>

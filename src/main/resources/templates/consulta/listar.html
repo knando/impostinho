@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listagem de Consultas</title>
+	<link rel="stylesheet" th:href="@{/paciente/style.css}">
+</head>
+
+<body>
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+
+	<main class="conteudo-principal">
+		<h2>Lista de Consultas</h2>
+
+		<div class="tabela-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Horário</th>
+						<th>Médico</th>
+						<th>Paciente</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c : ${listaC}">
+						<td th:text="${#temporals.format(c.horario, 'dd/MM/yyyy HH:mm')}"></td>
+						<td th:text="${c.medico.nome}"></td>
+						<td th:text="${c.paciente.nome}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+	</footer>
+</body>
+
+</html>

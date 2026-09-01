@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lista de médicos demitidos</title>
+	<link rel="stylesheet" th:href="@{/medico/listar.css}">
+</head>
+
+<body>
+
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+
+
+	<div class="caixa">
+		<h2>Lista de médicos demitidos</h2>
+
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Especialidade</th>
+				<th>Data de admissão</th>
+				<th>Cpf</th>
+				<th>Data de demissão</th>
+			</tr>
+			<tr th:each="medicos : ${listaM}">
+				<td th:text="${medicos.nome}"></td>
+				<td th:text="${medicos.especialidade}"></td>
+				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
+				<td th:text="${medicos.cpfFormatada}"></td>
+				<td th:text="${medicos.DataDemissaoFormatada}"></td>
+			</tr>
+		</table>
+
+	</div>
+	
+	<footer class="rodape">
+			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+    </footer>
+
+</body>
+
+</html>
