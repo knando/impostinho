@@ -2,6 +2,10 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +27,7 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/listar")
+	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
 	String listarMedicos(Model model) {
 		List<Medico> listaMedico = medicoService.buscaPorStatus(true);
 		model.addAttribute("listaM", listaMedico);

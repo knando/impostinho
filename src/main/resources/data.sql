@@ -56,3 +56,9 @@ insert into consulta (horario, medico_id, paciente_id)
 values ('2026-08-25 09:00:00', 1, 1),
 ('2026-08-25 10:30:00', 1, 1),
 ('2026-08-26 14:00:00', 2, 3);
+
+insert into usuario (username, senha, role)
+values ('admin', '$2a$10$ch/P1YLVS.qsHVNT1Jasd.3fdGGlivKbZ7kRSOYG33rgx2dLwi6KC', 'ROLE_ADMIN'),
+('usuario', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_ATENDENTE'),
+('medico', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO'),
+('paciente', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO');
