@@ -113,19 +113,23 @@ h2 {
 }
 
 .btn-salvar {
-    background-color: #2c4c2c;
+	display: block;
+	width: 100%;
+	max-width: 170px;
+    background-color: #2e7d32;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 10px 12px;
+    border-radius: 6px;
     font-weight: bold;
     font-size: 0.95rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
+	box-sizing: borde-box;
 }
 
 .btn-salvar:hover {
-    background-color: #1c331c;
+    background-color: #1b5e20;
 }
 
 .btn-cancelar {
@@ -133,11 +137,12 @@ h2 {
     color: white;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: bold;
     font-size: 0.95rem;
-    display: inline-block;
+    display: block;
     transition: background-color 0.2s ease;
+	box-sizing: borde-box;
 }
 
 .btn-cancelar:hover {
