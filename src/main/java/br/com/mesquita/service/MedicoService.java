@@ -28,6 +28,10 @@ public class MedicoService {
 		medicoRepository.save(medico);
 	}
 	
+	public Medico buscarPorId(Long id) {
+	    return medicoRepository.findById(id).orElse(null);
+	}
+	
 	public Long salvar(Medico medico) {
 		List<Medico> listaMedico = listar();
 		for(Medico m : listaMedico) {

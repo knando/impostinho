@@ -1,6 +1,7 @@
 package br.com.mesquita.model;
 
 import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -50,4 +51,12 @@ public class Consulta {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }
