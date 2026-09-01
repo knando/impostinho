@@ -2,7 +2,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Lista de médicos</title>
+	<title>Lista de médicos demitidos</title>
 	<link rel="stylesheet" th:href="@{/medico/listar.css}">
 </head>
 
@@ -17,7 +17,7 @@
 
 
 	<div class="caixa">
-		<h2>Lista de médicos</h2>
+		<h2>Lista de médicos demitidos</h2>
 
 		<table>
 			<tr>
@@ -25,35 +25,18 @@
 				<th>Especialidade</th>
 				<th>Data de admissão</th>
 				<th>Cpf</th>
+				<th>Data de demissão</th>
 			</tr>
 			<tr th:each="medicos : ${listaM}">
 				<td th:text="${medicos.nome}"></td>
 				<td th:text="${medicos.especialidade}"></td>
 				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
 				<td th:text="${medicos.cpfFormatada}"></td>
+				<td th:text="${medicos.DataDemissaoFormatada}"></td>
 			</tr>
 		</table>
 
 	</div>
-  
-	<div class="caixa">
-  <form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
-		
-		<label>Demitir médico</label>
-		
-		<select id="medicos" th:field="*{id}">
-		
-			<option value="">Selecione o médico</option>
-			<option th:each="medicos : ${listaM}"
-					th:if="${medicos.ativo == true}" 
-			        th:value="${medicos.id}" 
-			        th:text="${medicos.nome}">Nome do médico</option>
-			
-		</select>
-		
-		<button type="submit">Demitir</button>
-	</form>
- </div>
 	
 	<footer class="rodape">
 			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
