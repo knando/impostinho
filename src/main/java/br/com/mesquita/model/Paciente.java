@@ -35,7 +35,6 @@ public class Paciente {
 	
 	public Paciente(Long id, String nome, String cpf, Date dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
