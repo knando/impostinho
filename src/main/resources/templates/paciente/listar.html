@@ -37,10 +37,10 @@
 						<td th:text="${p.nome}"></td>
 						<td th:text="${p.sexo}"></td>
 						<td th:text="${p.cpfFormatada}"></td>
-						<td th:text="${#dates.format(p.dataNascimento, 'dd/MM/yyyy')}"></td>
+						<td th:text="${p.dataNasc}"></td>
 						<td th:text="${p.endereco}"></td>
 						<td
-							th:text="${#strings.substring(p.telefone, 0, 5) + '-' + #strings.substring(p.telefone, 5, 9)}">
+							th:text="${p.telefone}">
 						</td>
 						<td th:text="${p.alergia}"></td>
 					</tr>

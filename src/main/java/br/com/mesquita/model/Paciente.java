@@ -18,7 +18,7 @@ public class Paciente {
 	private Long id;
 	private String nome;
 	private String cpf;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String sexo;
 	private String endereco;
 	private String telefone;
@@ -27,13 +27,13 @@ public class Paciente {
 	
 	public Paciente() {}
 	
-	public Paciente(String nome, String cpf, Date dataNascimento) {
+	public Paciente(String nome, String cpf, LocalDate dataNascimento) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public Paciente(Long id, String nome, String cpf, Date dataNascimento, String sexo, String endereco,
+	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
 		super();
 		this.id = id;
@@ -66,7 +66,7 @@ public class Paciente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 	
@@ -107,11 +107,10 @@ public class Paciente {
 	}
 
 	public String getDataNasc() {
-		LocalDate dataTemp = LocalDate.ofInstant(dataNascimento.toInstant(), ZoneId.systemDefault());
-		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+		return dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

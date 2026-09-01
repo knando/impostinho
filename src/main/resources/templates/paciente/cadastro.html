@@ -22,44 +22,44 @@
 
 			<h2 class="titulo-form">Cadastro de Paciente</h2>
 
-			<form action="salvar" method="post">
+			<form th:action="@{salvar}" method="post" th:object="${paciente}">
 
 				<div class="conteudo-form">
 
 					<div class="campo">
 						<label for="input-nome">Nome: </label>
-						<input type="text" id="input-nome" name="nome" placeholder="Digite o nome">
+						<input type="text" id="input-nome" th:field="*{nome}" placeholder="Digite o nome">
 					</div>
 
 					<div class="campo">
 						<label for="input-cpf">CPF: </label>
-						<input type="text" id="input-cpf" name="cpf" maxlength="11" placeholder="Digite o CPF">
+						<input type="text" id="input-cpf" th:field="*{cpf}" maxlength="11" placeholder="Digite o CPF">
 					</div>
 
 					<div class="campo">
 						<label for="input-sexo">Sexo: </label>
-						<input type="text" id="input-sexo" name="sexo" placeholder="Digite o sexo">
+						<input type="text" id="input-sexo" th:field="*{sexo}" placeholder="Digite o sexo">
 					</div>
 
 					<div class="campo">
 						<label for="input-data-nascimento">Data de nascimento: </label>
-						<input type="date" id="input-data-nascimento" name="data-nascimento"
+						<input type="date" id="input-data-nascimento" th:field="*{dataNascimento}"
 							placeholder="Digite uma data">
 					</div>
 
 					<div class="campo">
 						<label for="input-telefone">Telefone: </label>
-						<input type="tel" id="input-telefone" name="telefone" placeholder="Digite o telefone">
+						<input type="tel" id="input-telefone" th:field="*{telefone}" placeholder="Digite o telefone">
 					</div>
 
 					<div class="campo">
 						<label for="input-endereco">Endereço: </label>
-						<input type="text" id="input-endereco" name="endereco" placeholder="Digite o endereço">
+						<input type="text" id="input-endereco" th:field="*{endereco}" placeholder="Digite o endereço">
 					</div>
 
 					<div class="campo campo-largura-total">
 						<label for="input-alergias">Alergias:</label>
-						<input type="text" id="input-alergias" name="alergias" placeholder="Digite as alergias">
+						<input type="text" id="input-alergias" th:field="*{alergia}" placeholder="Digite as alergias">
 					</div>
 
 				</div>
