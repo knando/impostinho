@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,17 +36,13 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/cadastro")
-	String cadastrarPacientes() {
+	String cadastrarPacientes(Model model) {
+		model.addAttribute("paciente", new Paciente());
 		return "paciente/cadastro";
 	}
 	
 	@PostMapping("/salvar")
-	String cadastrarPacientes(@RequestParam Map<String, String> data) {
-		Paciente paciente = new Paciente();
-		paciente.setNome(data.get("nome"));
-		paciente.setCpf(data.get("cpf"));
-		paciente.setDataNascimento(Date.valueOf(data.get("data-nascimento")));
-		IO.println(paciente.toString());
+	String cadastrarPacientes(@ModelAttribute Paciente paciente) {
 		pacienteService.salvar(paciente);
 		return "redirect:/paciente/listar";
 	}
