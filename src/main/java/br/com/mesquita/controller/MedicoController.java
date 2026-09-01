@@ -50,6 +50,14 @@ public class MedicoController {
 	   return "redirect:/medico/listar";
 	}
 	
+	@GetMapping("/editar")
+	public String editarMedico(@RequestParam("id") Long id, Model model) {
+	    Medico medico = medicoService.buscarPorId(id);
+	    model.addAttribute("medico", medico);
+	    return "medico/editar"; // Retorna o arquivo editar.html exclusivo
+
+	}
+
 	@PostMapping("/demitir") 
 	String demitirMedicos(@ModelAttribute Medico medico) {
        medicoService.demitir(medico.getId());

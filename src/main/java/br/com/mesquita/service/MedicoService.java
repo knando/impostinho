@@ -35,7 +35,11 @@ public class MedicoService {
 		}
 		return medicoRepository.save(medico).getId();
 	}
-
+	
+	public Medico buscarPorId(Long id) {
+		return medicoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Médico não encontrado: " + id));
+  }
+  
 	public List<Medico> buscaPorStatus(boolean estaAtivo) {
 		return medicoRepository.findAllByAtivo(estaAtivo);
 	}
