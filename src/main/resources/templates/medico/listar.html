@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 
 <head>
 	<meta charset="UTF-8">
@@ -25,17 +25,23 @@
 				<th>Especialidade</th>
 				<th>Data de admissão</th>
 				<th>Cpf</th>
+				<th>Ações</th>
 			</tr>
 			<tr th:each="medicos : ${listaM}">
 				<td th:text="${medicos.nome}"></td>
 				<td th:text="${medicos.especialidade}"></td>
 				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
 				<td th:text="${medicos.cpfFormatada}"></td>
+				<td>
+					<!-- Botão de Editar passando o ID do médico -->
+					<a th:href="@{/medico/editar(id=${medicos.id})}" class="btn-editar">Editar</a>
+				</td>
 			</tr>
 		</table>
 
 	</div>
   
+	<div class="caixa">
   <form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
 		
 		<label>Demitir médico</label>
@@ -52,10 +58,11 @@
 		
 		<button type="submit">Demitir</button>
 	</form>
- 
+ </div>
+	
 	<footer class="rodape">
-			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-    </footer>
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
+	</footer>
 
 </body>
 
