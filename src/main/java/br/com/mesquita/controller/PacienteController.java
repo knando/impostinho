@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.mesquita.model.Medico;
 import br.com.mesquita.model.Paciente;
 import br.com.mesquita.service.PacienteService;
 
