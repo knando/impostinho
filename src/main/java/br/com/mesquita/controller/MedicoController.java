@@ -57,7 +57,7 @@ public class MedicoController {
 	public String editarMedico(@RequestParam("id") Long id, Model model) {
 	    Medico medico = medicoService.buscarPorId(id);
 	    model.addAttribute("medico", medico);
-	    return "medico/editar"; // Retorna o arquivo editar.html exclusivo
+	    return "medico/editar"; 
 
 	}
 
