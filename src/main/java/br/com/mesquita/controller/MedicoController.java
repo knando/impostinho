@@ -2,16 +2,14 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.security.access.prepost.PreAuthorize;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.service.MedicoService;
