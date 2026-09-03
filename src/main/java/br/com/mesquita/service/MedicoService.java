@@ -27,7 +27,7 @@ public class MedicoService {
 		medico.setDataDemissao(LocalDate.now());
 		medicoRepository.save(medico);
 	}
-		
+	
 	public Long salvar(Medico medico) {
 		List<Medico> listaMedico = listar();
 		for(Medico m : listaMedico) {
