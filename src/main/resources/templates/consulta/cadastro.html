@@ -1,9 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de consulta</title>
-    <link rel="stylesheet" th:href="@{/consulta/cadastro.css}">
+	<meta charset="UTF-8">
+	<title>Cadastro de Consulta</title>
+	<link rel="stylesheet" th:href="@{/consulta/cadastro.css}">
 </head>
 
 <body>
@@ -44,6 +45,33 @@
         </form>
     </div>
 
+		<form th:action="@{/consulta/salvar}" method="post">
+			<p>
+				<label for="input-horario">Horário: </label>
+				<input type="datetime-local" id="input-horario" name="horario" required>
+			</p>
+			<p>
+				<label for="input-medico">Médico: </label>
+				<select id="input-medico" name="medicoId" required>
+					<option value="" disabled selected>Selecione um médico</option>
+					<option th:each="m : ${listaMedico}" th:value="${m.id}" th:text="${m.nome}"></option>
+				</select>
+			</p>
+			<p>
+				<label for="input-paciente">Paciente: </label>
+				<select id="input-paciente" name="pacienteId" required>
+					<option value="" disabled selected>Selecione um paciente</option>
+					<option th:each="p : ${listaPaciente}" th:value="${p.id}" th:text="${p.nome}"></option>
+				</select>
+			</p>
+			<p>
+				<input type="submit" value="Salvar">
+			
+				<a th:href="@{/consultas/listar}">Cancelar</a>
+			</p>
+		</form>
+	</main>
+  
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Consultas</p>
 	</footer>

@@ -29,4 +29,8 @@ public class PacienteService {
 	public Long salvar(Paciente paciente) {
 		return pacienteRepository.save(paciente).getId();
 	}
+	
+	public Paciente buscarPorId(Long id) {
+		return pacienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Paciente não encontrado: " + id));
+  }
 }

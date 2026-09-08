@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.service.MedicoService;
+import br.com.mesquita.service.PacienteService;
 
 @Controller
 @RequestMapping("/medico")
@@ -47,7 +48,7 @@ public class MedicoController {
 		return "medico/cadastro";
 	}
 	
-	@PostMapping("/salvar") 
+	@PostMapping("salvar") 
 	String cadastrarMedicos(@ModelAttribute Medico medico) {
 	   medicoService.salvar(medico);
 	   return "redirect:/medico/listar";
