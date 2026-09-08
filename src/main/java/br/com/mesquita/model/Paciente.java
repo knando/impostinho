@@ -20,7 +20,7 @@ public class Paciente {
 	private Long id;
 	private String nome;
 	private String cpf;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate dataNascimento;
 	private String sexo;
 	private String endereco;
