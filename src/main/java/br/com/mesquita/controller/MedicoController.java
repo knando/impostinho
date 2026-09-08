@@ -2,10 +2,7 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.springframework.security.access.prepost.PreAuthorize;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,7 +57,7 @@ public class MedicoController {
 	public String editarMedico(@RequestParam("id") Long id, Model model) {
 	    Medico medico = medicoService.buscarPorId(id);
 	    model.addAttribute("medico", medico);
-	    return "medico/editar"; // Retorna o arquivo editar.html exclusivo
+	    return "medico/editar"; 
 
 	}
 
