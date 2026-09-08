@@ -1,5 +1,6 @@
 package br.com.mesquita.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -43,8 +44,8 @@ public class PacienteController {
 	    model.addAttribute("paciente", paciente);
 	    return "paciente/editar"; 
 	}
-	
-	@PostMapping("salvar")
+  
+	@PostMapping("/salvar")
 	String cadastrarPacientes(@ModelAttribute Paciente paciente) {
 		pacienteService.salvar(paciente);
 		return "redirect:/paciente/listar";

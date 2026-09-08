@@ -108,10 +108,9 @@ public class Paciente {
 		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
 
-	/*public String getDataNasc() {
-		LocalDate dataTemp = LocalDate.ofInstant(dataNascimento.toInstant(), ZoneId.systemDefault());
-		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-	}*/
+	public String getDataNasc() {
+		return dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+	}
 	
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;

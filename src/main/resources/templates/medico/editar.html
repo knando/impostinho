@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar Médico</title>
+	<link rel="stylesheet" th:href="@{/medico/editar.css}">
+</head>
+
+<body>
+
+	<header class="barra">
+		<div class="barra-conteudo">
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+
+	<div class="caixa">
+		<h2>Editar Médico</h2>
+
+		<form th:action="@{/medico/salvar}" th:object="${medico}" method="post">
+
+			<input type="hidden" th:field="*{id}" />
+
+			<input type="hidden" th:field="*{cpf}" />
+			<input type="hidden" th:field="*{dataAdmissao}" />
+
+			<div class="campo">
+				<label>Nome:</label>
+				<input type="text" th:field="*{nome}" required />
+			</div>
+
+			<div class="campo">
+				<label>Especialidade:</label>
+				<input type="text" th:field="*{especialidade}" required />
+			</div>
+
+			<div class="campo">
+				<label>CPF:</label>
+				<input type="text" th:value="*{cpf}" disabled class="campo-bloqueado" />
+			</div>
+
+			<div class="campo">
+				<label>Data de Admissão:</label>
+				<input type="text" th:value="*{DataAdmissaoFormatada}" disabled class="campo-bloqueado" />
+			</div>
+
+			<div class="acoes">
+				<button type="submit" class="btn-salvar">Salvar Alterações</button>
+				<a th:href="@{/medico/listar}" class="btn-cancelar">Cancelar</a>
+			</div>
+		</form>
+	</div>
+
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
+	</footer>
+
+</body>
+
+</html>
