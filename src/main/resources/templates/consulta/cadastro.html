@@ -1,32 +1,52 @@
-<html>
-
+<!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-	
-<head><title>Cadastro de consulta</title></head>
-
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Consulta</title>
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	<link rel="stylesheet" th:href="@{/css/components.css}">
+</head>
 <body>
-	<h3>Cadastro de consulta</h3>
-
-	<form action="salvar" method="post">
-		<p>
-		<label for="input-horario">Horário: </label>
-		<input type="datetime-local" id="input-horario" name="horario" placeholder="Digite o horário">
-		<p>
-		<label for="input-medico">Médico: </label>
-		<select id="input-medico" name="medicoId">
-			<option value="" disabled selected>Selecione um médico</option>
-			<option th:each="m : ${listaMedico}" th:value="${m.id}" th:text="${m.nome}"></option>
-		</select>
-		<p>
-		<label for="input-paciente">Paciente: </label>
-		<select id="input-paciente" name="pacienteId">
-			<option value="" disabled selected>Selecione um paciente</option>
-			<option th:each="p : ${listaPaciente}" th:value="${p.id}" th:text="${p.nome}"></option>
-		</select>
-		<p>
-		<input type="submit" value="Salvar">
-	</form>
-
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+	<main class="conteudo-principal">
+		<div class="formulario-conteiner">
+			<h2 class="titulo-form">Cadastro de Consulta</h2>
+			<form th:action="@{/consulta/salvar}" method="post">
+				<div class="conteudo-form">
+					<div class="campo campo-largura-total">
+						<label for="input-horario">Horário: </label>
+						<input type="datetime-local" id="input-horario" name="horario" required>
+					</div>
+					<div class="campo">
+						<label for="input-medico">Médico: </label>
+						<select id="input-medico" name="medicoId" required>
+							<option value="" disabled selected>Selecione um médico</option>
+							<option th:each="m : ${listaMedico}" th:value="${m.id}" th:text="${m.nome}"></option>
+						</select>
+					</div>
+					<div class="campo">
+						<label for="input-paciente">Paciente: </label>
+						<select id="input-paciente" name="pacienteId" required>
+							<option value="" disabled selected>Selecione um paciente</option>
+							<option th:each="p : ${listaPaciente}" th:value="${p.id}" th:text="${p.nome}"></option>
+						</select>
+					</div>
+				</div>
+				<div class="acoes">
+					<button type="submit" class="btn-salvar">Salvar</button>
+					<a th:href="@{/consulta/listar}" class="btn-cancelar">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</main>
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Consultas</p>
+	</footer>
 </body>
-
 </html>
