@@ -32,7 +32,7 @@ insert into especialidade(medico_id, nome_especialidade)
 values (1, 'Fisioterapeuta'),
 (1, 'Neurocirurgião'),
 (2, 'Cardiologista'),
-(2, 'Pediatria');
+(2, 'Pediatria'),
 (3, 'Anestesiologia'),
 (3, 'Nutrologia'),
 (4, 'Infectologia'),
