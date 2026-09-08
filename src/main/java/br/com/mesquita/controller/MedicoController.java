@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.service.MedicoService;
-import br.com.mesquita.service.PacienteService;
 
 @Controller
 @RequestMapping("/medico")
