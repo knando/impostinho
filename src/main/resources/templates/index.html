@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Impostinho</title>
-	<link rel="stylesheet" th:href="@{/medico/listar.css}">
+	<link rel="stylesheet" th:href="@{index/index.css}">
 </head>
 
 <body>
@@ -13,6 +13,14 @@
 			<div class="logo"></div>
 			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
+		
+		<nav class="menu-sistema" >
+						<a th:href="@{/medico/listar}" >Médicos</a>
+						<a th:href="@{/paciente/listar}" >Pacientes</a>
+						<a th:href="@{/consulta/listar}" >Consultas</a>
+						<a th:href="@{/medico/listar/demitidos}" >Demitidos</a>
+						
+					</nav>
 	</header>
 
 
