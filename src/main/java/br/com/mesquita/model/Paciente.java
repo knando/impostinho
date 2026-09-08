@@ -5,6 +5,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ public class Paciente {
 	private Long id;
 	private String nome;
 	private String cpf;
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate dataNascimento;
 	private String sexo;
 	private String endereco;
@@ -35,7 +38,6 @@ public class Paciente {
 	
 	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
