@@ -2,7 +2,6 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.mesquita.model.Consulta;
-import br.com.mesquita.service.ConsultaService;
 import br.com.mesquita.model.Medico;
-import br.com.mesquita.service.MedicoService;
 import br.com.mesquita.model.Paciente;
-import br.com.mesquita.repository.ConsultaRepository;
+import br.com.mesquita.service.ConsultaService;
+import br.com.mesquita.service.MedicoService;
 import br.com.mesquita.service.PacienteService;
 
 @Controller

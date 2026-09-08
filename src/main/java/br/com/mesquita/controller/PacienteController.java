@@ -1,6 +1,5 @@
 package br.com.mesquita.controller;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
