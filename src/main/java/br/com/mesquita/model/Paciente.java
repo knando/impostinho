@@ -5,6 +5,8 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,7 +20,8 @@ public class Paciente {
 	private Long id;
 	private String nome;
 	private String cpf;
-	private Date dataNascimento;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataNascimento;
 	private String sexo;
 	private String endereco;
 	private String telefone;
@@ -27,13 +30,13 @@ public class Paciente {
 	
 	public Paciente() {}
 	
-	public Paciente(String nome, String cpf, Date dataNascimento) {
+	public Paciente(String nome, String cpf, LocalDate dataNascimento) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 	
-	public Paciente(Long id, String nome, String cpf, Date dataNascimento, String sexo, String endereco,
+	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
 		this.id = id;
 		this.nome = nome;
@@ -65,7 +68,7 @@ public class Paciente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 	
@@ -105,12 +108,12 @@ public class Paciente {
 		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
 
-	public String getDataNasc() {
+	/*public String getDataNasc() {
 		LocalDate dataTemp = LocalDate.ofInstant(dataNascimento.toInstant(), ZoneId.systemDefault());
 		return dataTemp.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-	}
+	}*/
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

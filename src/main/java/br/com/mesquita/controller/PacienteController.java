@@ -1,6 +1,6 @@
 package br.com.mesquita.controller;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public class PacienteController {
 	String listarPacientes(Model model) {
 		List<Paciente> listaPaciente = pacienteService.listar();
 		model.addAttribute("listaP", listaPaciente);
-		System.out.println(listaPaciente.get(0).getDataNasc());
+		System.out.println(listaPaciente.get(0).getDataNascimento());
 		return "paciente/listar";
 	}
 	
@@ -37,12 +37,11 @@ public class PacienteController {
 		return "paciente/cadastro";
 	}
 	
-	@GetMapping("/editar") 
-	String editarPaciente(Model model) {
-		List<Paciente> listaPaciente = pacienteService.listar();
-		model.addAttribute("listaP", listaPaciente);
-		model.addAttribute("paciente", new Paciente());
-		return "paciente/editar";
+	@GetMapping("/editar")
+	public String editarPaciente(@RequestParam("id") Long id, Model model) {
+	    Paciente paciente = pacienteService.buscarPorId(id);
+	    model.addAttribute("paciente", paciente);
+	    return "paciente/editar"; 
 	}
 	
 	@PostMapping("/salvar")
@@ -50,10 +49,16 @@ public class PacienteController {
 		Paciente paciente = new Paciente();
 		paciente.setNome(data.get("nome"));
 		paciente.setCpf(data.get("cpf"));
-		paciente.setDataNascimento(Date.valueOf(data.get("data-nascimento")));
+		paciente.setDataNascimento(LocalDate.parse(data.get("data-nascimento")));
 		IO.println(paciente.toString());
 		pacienteService.salvar(paciente);
 		return "redirect:/paciente/listar";
+	}
+	
+	@PostMapping("/edicao")
+	public String editarPacientes(@RequestParam Paciente paciente) {
+	    pacienteService.editar(paciente);
+	    return "redirect:/paciente/listar"; 
 	}
 
 }

@@ -1,85 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar paciente</title>
+</head>
 
 <body>
-	
-<div>
-		<div>
-		
-		<select id="pacienteSelecionado" onchange="carregarDados(this.value)">
-		        <option value="">Escolha um paciente</option>
-		        <option th:each="p : ${listaP}" th:value="${p.id}" th:text="${p.nome}"></option>
-		</select>
-	
-		</div>
-		
-	<form th:action="@{salvar}" method="post" th:object="${paciente}">
-		
-		<label>Editar paciente</label>
-		
-		<p>
-		<input type="hidden" id="pacienteId" name="id">
-		<p>
-		<label>Cpf: </label>
-		<input type="text" id="pacienteCpf" name="cpf" readonly>
-		<p>
-		<label for="dataNascimento">Data de nascimento: </label>
-		<input type="date" id="pacienteData" th:field="*{dataNascimento}" name="dataNascimento">
-		<p>
-		<label for="sexo">Sexo: </label>
-		<input type="text" id="pacienteSexo" th:field="*{sexo}" name="sexo">	
-		<p>
-		<label for="endereco">Endereço: </label>
-		<input type="text" id="pacienteEndereco" th:field="*{endereco}" name="endereco">
-		<p>
-		<label for="telefone">Telefone: </label>
-		<input type="number" id="pacienteTelefone" th:field="*{telefone}" name="telefone">	
-		<p>			
-		<label for="alergia">Alergia: </label>
-		<input type="text" id="pacienteAlergia" th:field="*{alergia}" name="alergia">
-		<p>
-			
-		<button type="submit">Alterar</button>
-	</form>
-	
-	<script th:inline="javascript">
-	
-		const pacientes = /*[[${listaP}]]*/ [];
-	
-		function carregarDados(idPaciente){
-			
-				        const paciente = pacientes.find(p => p.id == idPaciente);
 
-				        if (paciente) {
-				            document.getElementById("pacienteCpf").value = paciente.cpf;
-							const dataString = String(paciente.dataNasc); 
-							const dataFormatada = dataString.substring(0, 10); 
-							document.getElementById("pacienteData").value = dataFormatada;
-							document.getElementById("pacienteSexo").value = paciente.sexo;		
-							document.getElementById("pacienteEndereco").value = paciente.endereco;
-							document.getElementById("pacienteTelefone").value = paciente.telefone;
-							document.getElementById("pacienteAlergia").value = paciente.alergia;
-				        } else {
-				            limparCampos();
-				        }
-		}
-		
-		
-		function limparCampos(){
+	<header class="barra">
+		<div class="barra-conteudo">
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+	
+	<div class="caixa">
+		<h2>Editar paciente</h2>
+
+		<form th:action="@{edicao}" th:object="${paciente}" method="post">
+
+			<input type="hidden" th:field="*{id}" />
 			
-			document.getElementById('pacienteId').value = '';
-			document.getElementById('pacienteCpf').value = '';
-			document.getElementById('pacienteData').value = '';
-			document.getElementById('pacienteSexo').value = '';
-			document.getElementById('pacienteEndereco').value = '';
-			document.getElementById('pacienteTelefone').value = '';
-			document.getElementById('pacienteAlergia').value = '';
+			<input type="hidden" th:field="*{nome}" />
+
+			<input type="hidden" th:field="*{cpf}" />
 			
-		}
-	
-	</script>
-	
-</div>	
-	
+			<div class="campo">
+				<label>Nome:</label>
+				<input type="text" th:field="*{nome}" required disabled class="campo-bloqueado"/>
+			</div>
+
+			<div class="campo">
+				<label>CPF:</label>
+				<input type="text" th:value="*{cpf}" disabled class="campo-bloqueado" />
+			</div>
+
+			<div class="campo">
+				<label>Data de Nascimento:</label>
+				<input type="text" th:field="*{dataNascimento}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Endereço:</label>
+				<input type="text" th:field="*{endereco}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Telefone:</label>
+				<input type="text" th:field="*{telefone}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Sexo:</label>
+				<input type="text" th:field="*{sexo}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Alergia:</label>
+				<input type="text" th:field="*{alergia}"/>
+			</div>
+
+			<div class="acoes">
+				<button type="submit" class="btn-salvar">Salvar Alterações</button>
+				<a th:href="@{/paciente/listar}" class="btn-cancelar">Cancelar</a>
+			</div>
+		</form>
+	</div>
+
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
+	</footer>
+
 </body>
 
 </html>
