@@ -48,7 +48,7 @@ public class MedicoController {
 		return "medico/cadastro";
 	}
 	
-	@PostMapping("/salvar") 
+	@PostMapping("salvar") 
 	String cadastrarMedicos(@ModelAttribute Medico medico) {
 	   medicoService.salvar(medico);
 	   return "redirect:/medico/listar";

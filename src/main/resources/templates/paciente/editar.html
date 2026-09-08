@@ -17,7 +17,7 @@
 	<div class="caixa">
 		<h2>Editar paciente</h2>
 
-		<form th:action="@{edicao}" th:object="${paciente}" method="post">
+		<form th:action="@{salvar}" th:object="${paciente}" method="post">
 
 			<input type="hidden" th:field="*{id}" />
 			

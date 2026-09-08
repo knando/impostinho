@@ -27,6 +27,4 @@ public class PacienteService {
 	public Paciente buscarPorId(Long id) {
 		return pacienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Paciente não encontrado: " + id));
   }
-	
-	public Paciente 
 }

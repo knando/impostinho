@@ -1,12 +1,11 @@
 package br.com.mesquita.controller;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,7 +32,8 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/cadastro")
-	String cadastrarPacientes() {
+	String cadastrarPacientes(Model model) {
+		model.addAttribute("paciente", new Paciente());
 		return "paciente/cadastro";
 	}
 	
@@ -44,21 +44,10 @@ public class PacienteController {
 	    return "paciente/editar"; 
 	}
 	
-	@PostMapping("/salvar")
-	String cadastrarPacientes(@RequestParam Map<String, String> data) {
-		Paciente paciente = new Paciente();
-		paciente.setNome(data.get("nome"));
-		paciente.setCpf(data.get("cpf"));
-		paciente.setDataNascimento(LocalDate.parse(data.get("data-nascimento")));
-		IO.println(paciente.toString());
+	@PostMapping("salvar")
+	String cadastrarPacientes(@ModelAttribute Paciente paciente) {
 		pacienteService.salvar(paciente);
 		return "redirect:/paciente/listar";
-	}
-	
-	@PostMapping("/edicao")
-	public String editarPacientes(@RequestParam Paciente paciente) {
-	    pacienteService.editar(paciente);
-	    return "redirect:/paciente/listar"; 
 	}
 
 }
