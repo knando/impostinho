@@ -112,6 +112,31 @@ body {
 	grid-column: 1 / -1;
 }
 
+.campo select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid rgb(192, 192, 192);
+	border-radius: 6px;
+	font-size: 14px;
+	outline: none;
+	box-sizing: border-box;
+	padding-left: calc(50% - 2.5em);
+}
+
+.campo select option {
+	padding-left: 10px;
+	text-align: left;
+}
+
+.campo select:focus {
+	border-color: #2e7d32;
+	outline: none;
+	box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
 .formulario-conteiner input {
 	width: 100%;
 	padding: 10px 12px;
