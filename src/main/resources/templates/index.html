@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
 
 <head>
 	<meta charset="UTF-8">
@@ -19,6 +21,7 @@
 						<a th:href="@{/paciente/listar}" >Pacientes</a>
 						<a th:href="@{/consulta/listar}" >Consultas</a>
 						<a th:href="@{/medico/listar/demitidos}" >Demitidos</a>
+						<a th:href="@{/h2-console}" sec:authorize="hasRole('ADMIN')">H2 BD</a>
 						
 					</nav>
 	</header>
