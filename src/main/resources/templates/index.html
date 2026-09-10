@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://thymeleaf.org/extras/spring-security">
+
+	  <head>
+	  	<meta charset="UTF-8">
+	  	<title>Listagem de Pacientes</title>
+	  	<link rel="stylesheet" th:href="@{/css/base.css}">
+	  	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	  	<link rel="stylesheet" th:href="@{/css/components.css}">
+	  </head>
+
+<body>
+
+	<header class="barra">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+		
+		<nav class="menu-sistema" >
+						<a th:href="@{/medico/listar}" >Médicos</a>
+						<a th:href="@{/paciente/listar}" >Pacientes</a>
+						<a th:href="@{/consulta/listar}" >Consultas</a>
+						<a th:href="@{/medico/listar/demitidos}" >Demitidos</a>
+						<a th:href="@{/h2-console}" sec:authorize="hasRole('ADMIN')">H2 BD</a>
+						
+					</nav>
+	</header>
+
+
+	<div class="caixa">
+		
+<h2>Bem vindo ao Impostinho</h2>
+<br>
+<p>O unico posto medico Mundial</p>
+		
+
+	</div>
+  
+	<div class="caixa">
+  
+ </div>
+	
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho</p>
+	</footer>
+
+</body>
+
+</html>

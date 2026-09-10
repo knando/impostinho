@@ -1,8 +1,6 @@
 package br.com.mesquita.controller;
 
-import java.sql.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +27,7 @@ public class PacienteController {
 	String listarPacientes(Model model) {
 		List<Paciente> listaPaciente = pacienteService.listar();
 		model.addAttribute("listaP", listaPaciente);
-		System.out.println(listaPaciente.get(0).getDataNasc());
+		System.out.println(listaPaciente.get(0).getDataNascimento());
 		return "paciente/listar";
 	}
 	
@@ -39,6 +37,13 @@ public class PacienteController {
 		return "paciente/cadastro";
 	}
 	
+	@GetMapping("/editar")
+	public String editarPaciente(@RequestParam("id") Long id, Model model) {
+	    Paciente paciente = pacienteService.buscarPorId(id);
+	    model.addAttribute("paciente", paciente);
+	    return "paciente/editar"; 
+	}
+  
 	@PostMapping("/salvar")
 	String cadastrarPacientes(@ModelAttribute Paciente paciente) {
 		pacienteService.salvar(paciente);

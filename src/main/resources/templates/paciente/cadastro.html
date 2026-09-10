@@ -28,8 +28,11 @@
 						<input type="text" id="input-cpf" th:field="*{cpf}" maxlength="11" placeholder="Digite o CPF">
 					</div>
 					<div class="campo">
-						<label for="input-sexo">Sexo: </label>
-						<input type="text" id="input-sexo" th:field="*{sexo}" placeholder="Digite o sexo">
+						<label for="input-sexo">Sexo:</label>
+						<select id="sexo" th:field="*{sexo}" class="campo" required>
+						<option value="m">Masculino</option>
+						<option value="f">Feminino</option>
+						</select>
 					</div>
 					<div class="campo">
 						<label for="input-data-nascimento">Data de nascimento: </label>
@@ -37,7 +40,7 @@
 					</div>
 					<div class="campo">
 						<label for="input-telefone">Telefone: </label>
-						<input type="tel" id="input-telefone" th:field="*{telefone}" placeholder="Digite o telefone">
+						<input type="tel" id="input-telefone" th:field="*{telefone}" minlength="13" maxlength="13" placeholder="Digite o telefone">
 					</div>
 					<div class="campo">
 						<label for="input-endereco">Endereço: </label>

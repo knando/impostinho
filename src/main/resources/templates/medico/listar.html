@@ -7,6 +7,7 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
+
 	
 	<header class="barra">
 	    <div class="barra-conteudo">
@@ -23,6 +24,7 @@
 			
 	<div class="caixa">
 		<h2>Lista de médicos</h2>
+
 		<table>
 			<tr>
 				<th>Nome</th>
@@ -44,6 +46,7 @@
 	</div>
 
 	<div class="caixa">
+
 		<form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
 			<div class="campo">
 				<label for="medicos">Demitir médico</label>
@@ -60,6 +63,7 @@
 			</div>
 		</form>
 	</div>
+
 
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>

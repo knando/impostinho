@@ -8,6 +8,7 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
+
 	<header class="barra">
 		<div class="barra-conteudo">
 			<div class="logo"></div>
@@ -15,6 +16,7 @@
 		</div>
 	</header>
 	<main class="conteudo-principal">
+		
 		<div class="formulario-conteiner">
 			<h2 class="titulo-form">Cadastro de Médico</h2>
 			<form th:action="@{salvar}" method="post" th:object="${medico}">
@@ -47,5 +49,6 @@
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
 	</footer>
+
 </body>
 </html>
