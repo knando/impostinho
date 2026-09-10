@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Paciente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -24,16 +24,16 @@ public class Paciente {
 	private String endereco;
 	private String telefone;
 	private String alergia;
-	
-	
-	public Paciente() {}
-	
+
+	public Paciente() {
+	}
+
 	public Paciente(String nome, String cpf, LocalDate dataNascimento) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
 		this.id = id;
@@ -57,19 +57,23 @@ public class Paciente {
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
-	
+
 	public String getSexo() {
 		return sexo;
 	}
@@ -91,7 +95,11 @@ public class Paciente {
 	}
 
 	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+		if (telefone != null) {
+			this.telefone = telefone.replaceAll("\\D", "");
+		} else {
+			this.telefone = null;
+		}
 	}
 
 	public String getAlergia() {
@@ -101,7 +109,7 @@ public class Paciente {
 	public void setAlergia(String alergia) {
 		this.alergia = alergia;
 	}
-	
+
 	public String getCpfFormatada() {
 		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
@@ -109,9 +117,17 @@ public class Paciente {
 	public String getDataNasc() {
 		return dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
-	
+
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public String getFoneFormatado() {
+		if (this.telefone == null || this.telefone.length() != 13) {
+			return this.telefone;
+		}
+
+		return this.telefone.replaceAll("^(\\d{2})(\\d{2})(\\d{5})(\\d{4})$", "+$1 ($2) $3-$4");
 	}
 
 }
