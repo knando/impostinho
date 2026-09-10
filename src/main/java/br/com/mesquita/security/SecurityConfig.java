@@ -1,4 +1,5 @@
 package br.com.mesquita.security;
+import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,8 +27,13 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/public/**").permitAll() // Aberto
                 .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()                  // Todo o resto
+                
+            )
+            .headers(headers -> headers
+                .frameOptions(frame -> frame.sameOrigin())
             )
             .httpBasic(Customizer.withDefaults()); // Enable HTTP Basic Auth
 
