@@ -6,22 +6,23 @@
 /* --------------------------------------------------------------------------
    1. BARRA DE NAVEGAÇÃO (TOPO)
    -------------------------------------------------------------------------- */
-.barra {
-    background-color: var(--cor-primaria);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: var(--altura-barra);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding-left: 5%;
-    color: white;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
+   .barra {
+       background-color: var(--cor-primaria);
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       width: 100%;
+       height: var(--altura-barra);
+       z-index: 1000;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 0 20px;
+       color: white;
+       font-size: 1.4rem;
+       font-weight: bold;
+   }
  
 .barra-conteudo {
     display: flex;
@@ -54,6 +55,18 @@
     margin-right: 4px;
     font-size: 1.8rem;
     font-weight: 900;
+}
+
+.menu-sistema {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-sistema a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
 }
  
 /* --------------------------------------------------------------------------

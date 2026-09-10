@@ -8,12 +8,19 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
+
 	<header class="barra">
-		<div class="barra-conteudo">
-			<div class="logo"></div>
-			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-		</div>
+	    <div class="barra-conteudo">
+	        <div class="logo"></div>
+	        <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+	    </div>
+	    <nav class="menu-sistema">
+	        <a th:href="@{/medico/listar}">Médicos</a>
+	        <a th:href="@{/consulta/listar}">Consultas</a>
+			<a th:href="@{/paciente/listar}">Cadastro</a>
+	    </nav>
 	</header>
+			
 	<main class="conteudo-principal">
 		<h2>Lista de Pacientes</h2>
 		<div class="tabela-container">

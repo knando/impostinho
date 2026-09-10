@@ -7,12 +7,20 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
+	
 	<header class="barra">
-		<div class="barra-conteudo">
-			<div class="logo"></div>
-			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-		</div>
+	    <div class="barra-conteudo">
+	        <div class="logo"></div>
+	        <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+	    </div>
+	    <!-- Links para as outras duas páginas -->
+	    <nav class="menu-sistema">
+	        <a th:href="@{/consulta/listar}">Consultas</a>
+	        <a th:href="@{/paciente/listar}">Pacientes</a>
+			<a th:href="@{/medico/cadastro}">Cadastro</a>
+	    </nav>
 	</header>
+			
 	<div class="caixa">
 		<h2>Lista de médicos</h2>
 		<table>
