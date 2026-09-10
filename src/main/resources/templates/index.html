@@ -16,11 +16,12 @@
 			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
 		
-		<nav class="menu-sistema" >
-						<a th:href="@{/medico/listar}" >Médicos</a>
-						<a th:href="@{/paciente/listar}" >Pacientes</a>
-						<a th:href="@{/consulta/listar}" >Consultas</a>
-						<a th:href="@{/medico/listar/demitidos}" >Demitidos</a>
+		<nav class="menu-sistema" sec:authorize="isAuthenticated()" >
+						<a th:href="@{/medico/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')" >Médicos</a>
+						<a th:href="@{/paciente/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Pacientes</a>
+						<a th:href="@{/consulta/listar}" sec:authorize="hasAnyRole('ADMIN','USUARIO','ATENDENTE')" >Consultas</a>
+						
+						<a th:href="@{/medico/listar/demitidos}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Demitidos</a>
 						<a th:href="@{/h2-console}" sec:authorize="hasRole('ADMIN')">H2 BD</a>
 						
 					</nav>
