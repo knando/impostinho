@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Editar paciente</title>
+</head>
+
+<body>
+
+	<header class="barra">
+		<div class="barra-conteudo">
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+		</div>
+	</header>
+	
+	<div class="caixa">
+		<h2>Editar paciente</h2>
+
+		<form th:action="@{salvar}" th:object="${paciente}" method="post">
+
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="hidden" th:field="*{nome}" />
+
+			<input type="hidden" th:field="*{cpf}" />
+			
+			<div class="campo">
+				<label>Nome:</label>
+				<input type="text" th:field="*{nome}" required disabled class="campo-bloqueado"/>
+			</div>
+
+			<div class="campo">
+				<label>CPF:</label>
+				<input type="text" th:value="*{cpf}" disabled class="campo-bloqueado" />
+			</div>
+
+			<div class="campo">
+				<label>Data de Nascimento:</label>
+				<input type="text" th:field="*{dataNascimento}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Endereço:</label>
+				<input type="text" th:field="*{endereco}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Telefone:</label>
+				<input type="text" th:field="*{telefone}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Sexo:</label>
+				<input type="text" th:field="*{sexo}"/>
+			</div>
+			
+			<div class="campo">
+				<label>Alergia:</label>
+				<input type="text" th:field="*{alergia}"/>
+			</div>
+
+			<div class="acoes">
+				<button type="submit" class="btn-salvar">Salvar Alterações</button>
+				<a th:href="@{/paciente/listar}" class="btn-cancelar">Cancelar</a>
+			</div>
+		</form>
+	</div>
+
+	<footer class="rodape">
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
+	</footer>
+
+</body>
+
+</html>
