@@ -1,0 +1,146 @@
+/* ==========================================================================
+   LAYOUT.CSS — Barra de navegação, rodapé e containers de página
+   Depende de: base.css (variáveis)
+   ========================================================================== */
+ 
+/* --------------------------------------------------------------------------
+   1. BARRA DE NAVEGAÇÃO (TOPO)
+   -------------------------------------------------------------------------- */
+   .barra {
+       background-color: var(--cor-primaria);
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       width: 100%;
+       height: var(--altura-barra);
+       z-index: 1000;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 0 20px;
+       color: white;
+       font-size: 1.4rem;
+       font-weight: bold;
+   }
+ 
+.barra-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+ 
+.logo-texto {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+ 
+.logo-texto span {
+    color: var(--cor-destaque-texto);
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+ 
+.simbolo {
+    color: var(--cor-destaque);
+    margin-right: 4px;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.menu-sistema {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-sistema a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+ 
+.menu-sistema a:hover {
+    color: var(--cor-destaque-texto);
+}
+
+/* --------------------------------------------------------------------------
+   2. RODAPÉ
+   -------------------------------------------------------------------------- */
+.rodape {
+    background-color: var(--cor-fundo-rodape);
+    color: var(--cor-texto-rodape);
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.85rem;
+    margin-top: auto;
+    width: 100%;
+    flex-shrink: 0;
+}
+ 
+/* --------------------------------------------------------------------------
+   3. CONTAINER — PADRÃO "CAIXA" (cadastro simples / listagem)
+   -------------------------------------------------------------------------- */
+.caixa {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.caixa form {
+    width: 100%;
+    background-color: var(--cor-fundo-card);
+    padding: 30px;
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-card);
+}
+ 
+/* --------------------------------------------------------------------------
+   4. CONTAINER — PADRÃO "FORMULÁRIO EM GRID" (formulários maiores)
+   -------------------------------------------------------------------------- */
+.conteudo-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+ 
+.formulario-conteiner {
+    background-color: var(--cor-fundo-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+    width: 90%;
+    max-width: 680px;
+    border-radius: var(--raio-card-grande);
+    box-shadow: var(--sombra-card-grande);
+    margin: 20px 0;
+}
+ 
+.conteudo-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+ 
+.campo-largura-total {
+    grid-column: 1 / -1;
+}

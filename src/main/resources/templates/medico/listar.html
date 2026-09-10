@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-
 <head>
 	<meta charset="UTF-8">
 	<title>Lista de médicos</title>
-	<link rel="stylesheet" th:href="@{/medico/listar.css}">
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
-
 <body>
 
-	<header class="barra" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-			<div class="barra-conteudo">
-				<div class="logo"></div>
-				<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-			</div>
-			<!-- Links para as outras duas páginas -->
-			<nav class="menu-sistema" style="display: flex; gap: 20px;">
-				<a th:href="@{/consulta/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Consultas</a>
-				<a th:href="@{/paciente/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Pacientes</a>
-			</nav>
-		</header>
-
-
+	
+	<header class="barra">
+	    <div class="barra-conteudo">
+	        <div class="logo"></div>
+	        <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+	    </div>
+	    <!-- Links para as outras duas páginas -->
+	    <nav class="menu-sistema">
+	        <a th:href="@{/consulta/listar}">Consultas</a>
+	        <a th:href="@{/paciente/listar}">Pacientes</a>
+			<a th:href="@{/medico/cadastro}">Cadastro</a>
+	    </nav>
+	</header>
+			
 	<div class="caixa">
 		<h2>Lista de médicos</h2>
-		
-		<div style="margin-bottom: 20px;">
-		    <a th:href="@{/medico/cadastro}" class="btn" style="background-color: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block;">+ Novo Médico</a>
-		</div>
 
 		<table>
 			<tr>
@@ -42,36 +39,34 @@
 				<td th:text="${medicos.DataAdmissaoFormatada}"></td>
 				<td th:text="${medicos.cpfFormatada}"></td>
 				<td>
-					<!-- Botão de Editar passando o ID do médico -->
 					<a th:href="@{/medico/editar(id=${medicos.id})}" class="btn-editar">Editar</a>
 				</td>
 			</tr>
 		</table>
-
 	</div>
-  
+
 	<div class="caixa">
-  <form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
-		
-		<label>Demitir médico</label>
-		
-		<select id="medicos" th:field="*{id}">
-		
-			<option value="">Selecione o médico</option>
-			<option th:each="medicos : ${listaM}"
-			        th:value="${medicos.id}" 
-			        th:text="${medicos.nome}">Nome do médico</option>
-			
-		</select>
-		
-		<button type="submit">Demitir</button>
-	</form>
- </div>
-	
+
+		<form th:action="@{demitir}" th:object="${medico}" method="post" onsubmit="return confirm('Tem certeza que deseja demitir o médico?');">
+			<div class="campo">
+				<label for="medicos">Demitir médico</label>
+				<select id="medicos" th:field="*{id}">
+					<option value="">Selecione o médico</option>
+					<option th:each="medicos : ${listaM}"
+							th:if="${medicos.ativo == true}"
+					        th:value="${medicos.id}"
+					        th:text="${medicos.nome}">Nome do médico</option>
+				</select>
+			</div>
+			<div class="acoes">
+				<button type="submit" class="btn-salvar">Demitir</button>
+			</div>
+		</form>
+	</div>
+
+
 	<footer class="rodape">
 		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
 	</footer>
-
 </body>
-
 </html>
