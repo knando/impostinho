@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.thymeleaf.util.StringUtils;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -14,12 +15,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Medico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "usuario_id"/*, nullable = false*/) 
+	private Usuario usuario;
 	private String nome;
 	@ElementCollection
 	@CollectionTable(
@@ -45,27 +50,35 @@ public class Medico {
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
+	
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
 	}
+	
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
@@ -87,6 +100,7 @@ public class Medico {
 	public LocalDate getDataDemissao() {
 		return dataDemissao;
 	}
+	
 	public String getDataDemissaoFormatada() {
 		return dataDemissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
@@ -102,10 +116,20 @@ public class Medico {
 	public boolean equals(Medico medico) {
 		return StringUtils.equals(this.getCpf(), medico.getCpf());
 	}
+	
 	public boolean getAtivo() {
 		return ativo;
 	}
+	
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }
