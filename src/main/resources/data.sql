@@ -3,8 +3,7 @@ values ('admin', '$2a$10$ch/P1YLVS.qsHVNT1Jasd.3fdGGlivKbZ7kRSOYG33rgx2dLwi6KC',
 ('usuario', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_ATENDENTE'),
 ('medico', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO'),
 ('barbara', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO'),
-('paciente', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO'),
-('JorgeBen', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO');
+('paciente', '$2a$10$QLw1A.3gEGj27rSua/ij2ebnd8wXRj2hxebqwQdWwr7sedGp4t7f2', 'ROLE_USUARIO');
 
 insert into paciente(alergia,nome,data_nascimento,cpf,endereco,sexo,telefone)
 values ('na','Marta Almeida','1995-09-22', '043.215.987-90','Joinville','f','992789711'),
@@ -16,11 +15,9 @@ values ('na','Marta Almeida','1995-09-22', '043.215.987-90','Joinville','f','992
  ('melão','Cristiana Jaime', '1997-09-30', '727.731.190-61','São Paulo','f','937666826'),
  ('soja,nozes','Lucila Cleide', '2000-02-10', '530.608.710-86','Pelotas','f','938600731'),
  ('leite,soja','Airton Renan', '2007-11-01', '820.721.590-91','Maceió','m','928124106'),
- ('nozes,latex','Gabi Thales', '2009-06-22', '080.386.780-87','Pelotas','f','922046536');
-
-insert into paciente(alergia,nome,data_nascimento,cpf,endereco,sexo,telefone,usuario_id)
-values ('ovo,nozes','Jorge Matos', '1991-04-11', '043.213.456-90','Porto Alegre','m','998756045', 5),
- ('gluten,grama,carne','Jorge Ben Jor', '1973-09-22', '043.215.456-90','Campinas','m','992342711', 6);
+ ('nozes,latex','Gabi Thales', '2009-06-22', '080.386.780-87','Pelotas','f','922046536'),
+ ('ovo,nozes','Jorge Matos', '1991-04-11', '043.213.456-90','Porto Alegre','m','998756045'),
+ ('gluten,grama,carne','Jorge Ben Jor', '1973-09-22', '043.215.456-90','Campinas','m','992342711');
 
 insert into medico(cpf, data_admissao, nome, ativo)
 values ('123.456.789-11', '2018-01-03', 'Marcos Paulo','true'),
