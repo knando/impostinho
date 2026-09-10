@@ -9,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Paciente {
@@ -129,5 +131,4 @@ public class Paciente {
 
 		return this.telefone.replaceAll("^(\\d{2})(\\d{2})(\\d{5})(\\d{4})$", "+$1 ($2) $3-$4");
 	}
-
 }
