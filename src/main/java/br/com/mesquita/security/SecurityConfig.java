@@ -26,7 +26,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless REST APIs
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/public/**").permitAll() // Aberto
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                .requestMatchers("/api/admin/**", "/usuario/cadastro").hasRole("ADMIN")
                 .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()                  // Todo o resto
