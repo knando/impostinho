@@ -34,9 +34,11 @@ public class MedicoService {
 		for(Medico m : listaMedico) {
 			if(m.getCpf() == medico.getCpf() && m.getAtivo() == false) { m.setAtivo(true);}
 		}
+		if(medico.getUsuario() != null && medico.getUsuario().getSenha() != null) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		medico.getUsuario().setSenha(encoder.encode(medico.getUsuario().getSenha()));
 		medico.getUsuario().setRole("ROLE_USUARIO");
+		}
 		return medicoRepository.save(medico).getId();
 	}
 	

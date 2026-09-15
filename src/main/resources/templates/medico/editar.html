@@ -16,9 +16,11 @@
 	<div class="caixa">
 		<h2>Editar Médico</h2>
 		<form th:action="@{/medico/salvar}" th:object="${medico}" method="post">
+			
 			<input type="hidden" th:field="*{id}" />
 			<input type="hidden" th:field="*{cpf}" />
 			<input type="hidden" th:field="*{dataAdmissao}" />
+			
 			<div class="campo">
 				<label>Nome:</label>
 				<input type="text" th:field="*{nome}" required />
