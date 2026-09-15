@@ -16,7 +16,7 @@
 			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
 		
-		<nav class="menu-sistema" sec:authorize="isAuthenticated()" >
+		<nav class="menu-sistema"  >
 						<a th:href="@{/medico/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')" >Médicos</a>
 						<a th:href="@{/paciente/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Pacientes</a>
 						<a th:href="@{/consulta/listar}" sec:authorize="hasAnyRole('ADMIN','USUARIO','ATENDENTE')" >Consultas</a>

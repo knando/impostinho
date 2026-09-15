@@ -16,6 +16,7 @@ import br.com.mesquita.service.MedicoService;
 
 @Controller
 @RequestMapping("/medico")
+@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
 public class MedicoController {
 	
 	MedicoService medicoService;
@@ -25,7 +26,7 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/listar")
-	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
+	
 	String listarMedicos(Model model) {
 		List<Medico> listaMedico = medicoService.buscaPorStatus(true);
 		model.addAttribute("listaM", listaMedico);
@@ -34,6 +35,7 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/listar/demitidos")
+	
 	String listarMedicosInativos(Model model) {
 		List<Medico> listaMedico = medicoService.buscaPorStatus(false);
 		model.addAttribute("listaM", listaMedico);
@@ -41,7 +43,8 @@ public class MedicoController {
 		return "medico/listarDemitidos";
 	}
 	
-	@GetMapping("/cadastro") 
+	@GetMapping("/cadastro")
+	
 	String cadastrarMedicos(Model model) {
 		model.addAttribute("medico", new Medico());
 		return "medico/cadastro";
@@ -54,6 +57,7 @@ public class MedicoController {
 	}
 	
 	@GetMapping("/editar")
+	
 	public String editarMedico(@RequestParam("id") Long id, Model model) {
 	    Medico medico = medicoService.buscarPorId(id);
 	    model.addAttribute("medico", medico);
@@ -61,7 +65,8 @@ public class MedicoController {
 
 	}
 
-	@PostMapping("/demitir") 
+	@PostMapping("/demitir")
+	
 	String demitirMedicos(@ModelAttribute Medico medico) {
        medicoService.demitir(medico.getId());
 	   return "redirect:/medico/listar";
