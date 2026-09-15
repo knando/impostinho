@@ -1,5 +1,5 @@
 package br.com.mesquita.security;
-
+import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,37 +20,43 @@ import br.com.mesquita.service.AcessoUsuarioService;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf(csrf -> csrf.disable()) // Disable CSRF for stateless REST APIs
-				.authorizeHttpRequests(auth -> auth.requestMatchers("/css/**").permitAll()
-						.requestMatchers("/api/public/**").permitAll() // Aberto
-						.requestMatchers("/usuario/cadastro").hasRole("ADMIN").requestMatchers("/api/admin/**")
-						.hasRole("ADMIN").requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN").anyRequest()
-						.authenticated() // Todo o resto
-				).httpBasic(Customizer.withDefaults()); // Enable HTTP Basic Auth
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless REST APIs
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/public/**").permitAll() // Aberto
+                .requestMatchers("/api/admin/**", "/usuario/cadastro").hasRole("ADMIN")
+                .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
+                .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
+                .anyRequest().authenticated()                  // Todo o resto
+                
+            )
+            .headers(headers -> headers
+                .frameOptions(frame -> frame.sameOrigin())
+            )
+            .httpBasic(Customizer.withDefaults()); // Enable HTTP Basic Auth
 
-		return http.build();
-	}
+        return http.build();
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(); // Hashing algorithm for passwords
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(); // Hashing algorithm for passwords
+    }
 
-	@Bean
-	public AuthenticationManager authenticationManager(AcessoUsuarioService userDetailsService,
-			PasswordEncoder passwordEncoder) {
-		DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
-		provider.setPasswordEncoder(passwordEncoder);
-		return new ProviderManager(provider);
-	}
-
-	/**
-	 * Este método serve para gerar senhas criptografadas
-	 */
-	void geraSenha() {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		System.out.println(encoder.encode("senha"));
-	}
+    @Bean
+    public AuthenticationManager authenticationManager(AcessoUsuarioService userDetailsService, PasswordEncoder passwordEncoder) {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder);
+        return new ProviderManager(provider);
+    }
+    
+    /**
+     * Este método serve para gerar senhas criptografadas
+     */
+    void geraSenha() {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        System.out.println(encoder.encode("senha"));
+    }
 }
