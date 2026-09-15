@@ -15,8 +15,8 @@
 			</div>
 			<!-- Links para as outras duas páginas -->
 			<nav class="menu-sistema" style="display: flex; gap: 20px;">
-				<a th:href="@{/medico/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Médicos</a>
-				<a th:href="@{/paciente/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;">Pacientes</a>
+				<a th:href="@{/medico/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Médicos</a>
+				<a th:href="@{/paciente/listar}" style="color: white; text-decoration: none; font-weight: bold; padding: 5px 10px;" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Pacientes</a>
 			</nav>
 		</header>
 	
