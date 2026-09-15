@@ -1,24 +1,21 @@
-<html>
-
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Lista de médicos demitidos</title>
-	<link rel="stylesheet" th:href="@{/medico/listar.css}">
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
-
 <body>
-
 	<header class="barra">
 		<div class="barra-conteudo">
 			<div class="logo"></div>
 			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
 		</div>
 	</header>
-
-
 	<div class="caixa">
 		<h2>Lista de médicos demitidos</h2>
-
 		<table>
 			<tr>
 				<th>Nome</th>
@@ -35,13 +32,9 @@
 				<td th:text="${medicos.DataDemissaoFormatada}"></td>
 			</tr>
 		</table>
-
 	</div>
-	
 	<footer class="rodape">
-			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-    </footer>
-
+		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+	</footer>
 </body>
-
 </html>
