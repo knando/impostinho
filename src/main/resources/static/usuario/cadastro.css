@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: darkseagreen;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #1f2937;
+}
+
+.cartao-cadastro {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  background-color: darkseagreen;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+
+.painel-informativo {
+  width: 42%;
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tag-administrador {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.painel-informativo-titulo {
+  font-size: 22px;             
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;    
+  color: #ffffff;
+  background: linear-gradient(180deg, #FFFFFF 0%, #Dcfce7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.painel-informativo-descricao {
+  text-align: left;
+  max-width: 90%; 
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.caixa-aviso {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.caixa-aviso-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.caixa-aviso-texto {
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.painel-formulario {
+  width: 58%;
+  background-color: #ffffff;
+  padding: 48px;
+}
+
+.painel-formulario-cabecalho {
+  margin-bottom: 24px;
+}
+
+.painel-formulario-cabecalho h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.painel-formulario-cabecalho p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.formulario-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.campo-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1f2937;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.campo-input::placeholder {
+  color: rgb(128, 128, 128);
+}
+
+.campo-input:focus {
+  background-color: #ffffff;
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.opcao-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.opcao-checkbox:hover {
+  background-color: #f3f4f6;
+}
+
+.opcao-checkbox-input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: rgb(0, 128, 64);
+  cursor: pointer;
+}
+
+.opcao-checkbox-texto {
+  display: flex;
+  flex-direction: column;
+}
+
+.opcao-checkbox-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.opcao-checkbox-subtitulo {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.grupo-botoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.botao {
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.botao-cancelar{
+  width: 35%;
+  background-color: transparent;
+  border: 1px solid #e5e7eb;
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgb(192, 192, 192);
+
+}
+
+.botao-cancelar:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.botao-salvar {
+  width: 65%;
+  background-color: #2e7d32;
+  color: #ffffff;
+box-shadow: 0 4px 14px rgba(46, 125, 50, 0.3);
+}
+
+.botao-salvar:hover {
+  background-color: rgb(0, 64, 0);
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
+}
+
+

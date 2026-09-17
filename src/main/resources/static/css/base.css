@@ -1,0 +1,93 @@
+/* ==========================================================================
+   BASE.CSS — Reset, variáveis globais e estrutura base do documento
+   Importar SEMPRE primeiro, antes de layout.css e components.css
+   ========================================================================== */
+ 
+/* --------------------------------------------------------------------------
+   1. RESET
+   -------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+html,
+body {
+    height: 100%;
+}
+ 
+/* --------------------------------------------------------------------------
+   2. VARIÁVEIS GLOBAIS (design tokens do projeto)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Cores principais */
+    --cor-primaria: #1c331c;                  /* verde escuro (barra, títulos, textos fortes) */
+    --cor-secundaria: #2c4c2c;                /* verde médio (cabeçalho de tabela, botão editar) */
+    --cor-acao: #2e7d32;                      /* verde de botões de ação/salvar */
+    --cor-acao-hover: #1b5e20;                /* hover dos botões de ação */
+    --cor-destaque: #4caf50;                  /* verde do símbolo/logo */
+    --cor-destaque-texto: rgb(181, 245, 137); /* verde claro do texto do logo */
+    --cor-cancelar: #6c757d;                  /* cinza do botão cancelar */
+    --cor-cancelar-hover: #5a6268;
+ 
+    /* Fundos */
+    --cor-fundo: darkseagreen;    /* fundo geral da página */
+    --cor-fundo-card: #ffffff;    /* fundo de formulários/tabelas */
+    --cor-fundo-rodape: #1c331c;
+    --cor-texto-rodape: #a5c4a5;
+ 
+    /* Bordas e estados */
+    --cor-borda: #ccc;
+    --cor-borda-clara: #e0e0e0;
+    --cor-bloqueado-fundo: #e9ecef;
+    --cor-bloqueado-texto: #6c757d;
+    --cor-bloqueado-borda: #ced4da;
+ 
+    /* Tipografia */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
+ 
+    /* Medidas e efeitos padrão */
+    --altura-barra: 65px;
+    --raio-padrao: 6px;
+    --raio-card: 8px;
+    --raio-card-grande: 12px;
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.15);
+    --sombra-card-grande: 0 4px 20px rgba(0, 0, 0, 0.12);
+    --transicao-padrao: 0.2s ease;
+}
+ 
+/* --------------------------------------------------------------------------
+   3. ESTRUTURA BASE DA PÁGINA
+   -------------------------------------------------------------------------- */
+body {
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: var(--altura-barra);
+}
+ 
+/* --------------------------------------------------------------------------
+   4. TIPOGRAFIA
+   -------------------------------------------------------------------------- */
+h2 {
+    color: var(--cor-primaria);
+    display: table;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+ 
+.titulo-form {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
