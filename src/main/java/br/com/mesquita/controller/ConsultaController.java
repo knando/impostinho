@@ -2,6 +2,7 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,7 @@ public class ConsultaController {
 	}
 	
 	@GetMapping("/listar")
+	
 	String ListarConsultas(Model model){
 		List<Consulta> listaConsulta = consultaService.listar();
 		model.addAttribute("listaC", listaConsulta);
@@ -39,6 +41,7 @@ public class ConsultaController {
 	}
 	
 	@GetMapping("/cadastro")
+	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
 	String cadastrarConsulta(Model model){
 		List<Medico> listaMedico = medicoService.listar();
 		List<Paciente> listaPaciente = pacienteService.listar();
