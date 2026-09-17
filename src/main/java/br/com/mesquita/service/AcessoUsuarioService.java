@@ -1,11 +1,13 @@
 package br.com.mesquita.service;
 
 import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import br.com.mesquita.model.Usuario;
 import br.com.mesquita.repository.UsuarioRepository;
 import br.com.mesquita.security.AcessoUsuario;
@@ -33,10 +35,12 @@ public class AcessoUsuarioService implements UserDetailsService {
 	}
 
 	public Long salvar(Usuario usuario) {
-
-		String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
-		usuario.setSenha(senhaCriptografada);
-
+		if (usuario.getRole() == null || usuario.getRole().isBlank()) {
+			usuario.setRole("ROLE_ATENDENTE");
+		}
+		if (usuario.getSenha() != null && !usuario.getSenha().isBlank()) {
+			usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
+		}
 		return userRepository.save(usuario).getId();
 	}
 
@@ -44,5 +48,4 @@ public class AcessoUsuarioService implements UserDetailsService {
 		return userRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado: " + id));
 	}
-
 }

@@ -52,7 +52,8 @@ public class ConsultaController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(@ModelAttribute Consulta consulta, @RequestParam long medicoId, @RequestParam long pacienteId) {
+	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
+	public String salvar(@ModelAttribute Consulta consulta, @RequestParam Long medicoId, @RequestParam Long pacienteId) {
 		consultaService.salvar(consulta, medicoId, pacienteId);
 		return "redirect:/consulta/listar";
 	}

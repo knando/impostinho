@@ -35,25 +35,28 @@
 			<form class="formulario-usuario" th:action="@{/usuario/salvar}" th:object="${usuario}" method="post">
 
 				<div class="campo">
-					<label for="input-username" class="campo-label">Nome de Usuário:</label>
-					<input type="text" id="username" th:field="*{Username}" class="campo-input" placeholder="ex: Isabella Menezes">
+				    <label for="input-nome" class="campo-label">Nome:</label>
+				    <input type="text" id="nome" th:field="*{nome}" class="campo-input" placeholder="ex: Isabella Menezes">
 				</div>
 
 				<div class="campo">
-					<label for="input-senha" class="campo-label">Senha:</label>
-					<input type="password" id="senha" th:field="*{Senha}" class="campo-input" placeholder="••••••••">
+				    <label for="input-username" class="campo-label">Nome de Usuário:</label>
+				    <input type="text" id="username" th:field="*{username}" class="campo-input" placeholder="ex: isabella.menezes">
 				</div>
 
 				<div class="campo">
-					<label class="opcao-checkbox" for="is_admin">
-						<input type="checkbox" id="is_admin" th:field="*{role}" value="ROLE_ADMIN"
-							class="opcao-checkbox-input">
-						<div class="opcao-checkbox-texto">
-							<span class="opcao-checkbox-titulo">Conceder acesso de Administrador</span>
-							<span class="opcao-checkbox-subtitulo">Este usuário poderá gerenciar outros usuários e
-								configurações</span>
-						</div>
-					</label>
+				    <label for="input-senha" class="campo-label">Senha:</label>
+				    <input type="password" id="senha" th:field="*{senha}" class="campo-input" placeholder="••••••••">
+				</div>
+
+				<div class="campo">
+				    <label class="opcao-checkbox" for="is_admin">
+				        <input type="checkbox" id="is_admin" name="role" value="ROLE_ADMIN" class="opcao-checkbox-input">
+				        <div class="opcao-checkbox-texto">
+				            <span class="opcao-checkbox-titulo">Conceder acesso de Administrador</span>
+				            <span class="opcao-checkbox-subtitulo">Este usuário poderá gerenciar outros usuários e configurações</span>
+				        </div>
+				    </label>
 				</div>
 
 				<div class="grupo-botoes">
