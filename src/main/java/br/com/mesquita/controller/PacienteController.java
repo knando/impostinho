@@ -2,6 +2,7 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,12 +33,14 @@ public class PacienteController {
 	}
 	
 	@GetMapping("/cadastro")
+	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
 	String cadastrarPacientes(Model model) {
 		model.addAttribute("paciente", new Paciente());
 		return "paciente/cadastro";
 	}
 	
 	@GetMapping("/editar")
+	@PreAuthorize("hasAnyRole('ATENDENTE', 'ADMIN')")
 	public String editarPaciente(@RequestParam("id") Long id, Model model) {
 	    Paciente paciente = pacienteService.buscarPorId(id);
 	    model.addAttribute("paciente", paciente);
