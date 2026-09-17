@@ -3,11 +3,14 @@ package br.com.mesquita.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.hibernate.PropertyValueException;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.mesquita.model.Medico;
 import br.com.mesquita.repository.MedicoRepository;
+import io.micrometer.common.util.StringUtils;
 
 @Service
 public class MedicoService {
@@ -29,16 +32,27 @@ public class MedicoService {
 		medicoRepository.save(medico);
 	}
 
-	public Long salvar(Medico medico) {
-		List<Medico> listaMedico = listar();
-		for(Medico m : listaMedico) {
-			if(m.getCpf() == medico.getCpf() && m.getAtivo() == false) { m.setAtivo(true);}
+	public Long salvar(Medico medico) throws PropertyValueException {
+		
+		if (medico.getId() != null) {
+			Medico medicoBanco = buscarPorId(medico.getId());
+			
+			if (medicoBanco.getAtivo() == false) { // lógica antiga
+				medico.setAtivo(true);
+			}
+			if (StringUtils.isBlank(medico.getSenha())) { // médico está sendo atualizado e a senha não foi alterada
+				medico.setSenha(medicoBanco.getSenha());
+			} else {
+				BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+				medico.setSenha(encoder.encode(medico.getSenha()));
+				medico.setRole("ROLE_USUARIO");
+			}
 		}
-		if(medico.getUsuario() != null && medico.getUsuario().getSenha() != null) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		medico.getUsuario().setSenha(encoder.encode(medico.getUsuario().getSenha()));
-		medico.getUsuario().setRole("ROLE_USUARIO");
+		
+		if (StringUtils.isBlank(medico.getSenha())) {
+			throw new PropertyValueException("Senha não pode estar vazia.", "Medico", "Senha");
 		}
+		
 		return medicoRepository.save(medico).getId();
 	}
 	

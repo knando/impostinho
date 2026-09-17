@@ -6,26 +6,15 @@ import java.util.Set;
 
 import org.thymeleaf.util.StringUtils;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Medico {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "usuario_id"/*, nullable = false*/) 
-	private Usuario usuario;
-	private String nome;
+public class Medico extends Usuario{
+	
 	@ElementCollection
 	@CollectionTable(
 			name = "especialidade", // Name of the target table
@@ -40,35 +29,21 @@ public class Medico {
 	public boolean ativo = true;
 	
 	public Medico() {
-
 	}
-	public Medico(String cpf, String nome) {
+
+	public Medico(Set<String> especialidade, String cpf, LocalDate dataAdmissao) {
+		super();
+		this.especialidade = especialidade;
 		this.cpf = cpf;
-		this.nome = nome;
+		this.dataAdmissao = dataAdmissao;
 	}
 
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
 	
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	public String getCpf() {
@@ -123,13 +98,5 @@ public class Medico {
 	
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
-	}
-	
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 }

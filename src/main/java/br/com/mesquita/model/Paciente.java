@@ -6,17 +6,10 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
-public class Paciente {
+public class Paciente extends Usuario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String nome;
 	private String cpf;
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private LocalDate dataNascimento;
@@ -28,38 +21,20 @@ public class Paciente {
 	public Paciente() {
 	}
 
-	public Paciente(String nome, String cpf, LocalDate dataNascimento) {
-		this.nome = nome;
+	public Paciente(String cpf, LocalDate dataNascimento) {
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 	}
 
-	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
+	public Paciente(String cpf, LocalDate dataNascimento, String sexo, String endereco,
 			String telefone, String alergia) {
-		this.id = id;
-		this.nome = nome;
+		super();
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		this.sexo = sexo;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.alergia = alergia;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public String getCpf() {

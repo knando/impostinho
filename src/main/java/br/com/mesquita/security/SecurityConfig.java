@@ -27,7 +27,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/public/**").permitAll() // Aberto
                 .requestMatchers("/api/admin/**", "/usuario/cadastro").hasRole("ADMIN")
-                .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
+                .requestMatchers(PathRequest.toH2Console()).permitAll()
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()                  // Todo o resto
                 
