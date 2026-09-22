@@ -1,13 +1,23 @@
 
 .login-container {
-	background: white;
+	background: var(--cor-fundo-card);
 	padding: 3vh;
 	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-	width: 300px;
+	box-shadow: 0 4px 10px black;
+	width: 350px;
 }
 
-body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f9; margin: 0; }
+h3{
+	margin-bottom: 10px;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
 
 .form-group {
 	margin-bottom: 15px;
