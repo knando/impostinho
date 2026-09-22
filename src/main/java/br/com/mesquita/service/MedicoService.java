@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.hibernate.PropertyValueException;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
