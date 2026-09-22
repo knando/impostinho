@@ -51,8 +51,8 @@
 		</div>
 	</main>
 	<a th:href="@{/paciente/cadastro}" class="btn-salvar">+ Novo Paciente</a>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-	</footer>
+	
+	<footer th:replace="~{fragments/util :: rodap}"></footer>
+	
 </body>
 </html>
