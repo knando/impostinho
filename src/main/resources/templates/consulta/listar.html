@@ -34,7 +34,7 @@
 			
 		</div>
 		
-		<a th:href="@{/consulta/cadastro}" class="btn-salvar">+ Nova Consulta</a>
+		<a th:href="@{/consulta/cadastro}" class="btn-salvar" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">+ Nova Consulta</a>
 		
 	</main>
 	<footer class="rodape">
