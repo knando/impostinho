@@ -5,16 +5,20 @@
 	<meta charset="UTF-8">
 	<title>Cadastro de Usuários</title>
 	<link rel="stylesheet" th:href="@{/usuario/cadastro.css}">
+
+	
 </head>
 
 <body>
+	
 	<main class="cartao-cadastro">
+
 
 		<div class="painel-informativo">
 			<div class="painel-informativo-topo">
 				<span class="tag-administrador">Painel do Administrador</span>
-				<h1 class="painel-informativo-titulo">Novo Cadastro de Usuário</h1>
-				<p class="painel-informativo-descricao">Cadastre novos membros e gerencie as permissões de acesso ao
+				<h1 class="painel-informativo-titulo" th:text="${usuario.id != null ? 'Atualização de Cadastro de Usuário' : 'Novo Cadastro de Usuário'}">Novo Cadastro de Usuário</h1>
+				<p class="painel-informativo-descricao" th:text="${usuario.id != null ? 'Atualize novos membros e gerencie as permissões de acesso ao Impostinho' : 'Cadastre novos membros e gerencie as permissões de acesso ao Impostinho'}">Cadastre novos membros e gerencie as permissões de acesso ao
 					Impostinho.</p>
 			</div>
 
@@ -28,20 +32,24 @@
 
 		<section class="painel-formulario">
 			<header class="painel-formulario-cabecalho">
-				<h2>Cadastrar Usuário</h2>
-				<p>Preencha os dados abaixo para registrar o novo usuário</p>
+				<h2 th:text="${usuario.id != null} ? 'Editar Usuário' : 'Cadastrar Usuário'">Cadastrar Usuário</h2>
+				<p th:text="${usuario.id != null} ? 'Atualize as informações do usuário abaixo' : 'Preencha os dados abaixo para registrar o novo usuário'">Preencha os dados abaixo para registrar o novo usuário</p>
 			</header>
 
 			<form class="formulario-usuario" th:action="@{/usuario/salvar}" th:object="${usuario}" method="post">
 
+				 <input type="hidden" th:field="*{id}" />
+				
 				<div class="campo">
 					<label for="input-username" class="campo-label">Nome de Usuário:</label>
-					<input type="text" id="username" th:field="*{Username}" class="campo-input" placeholder="ex: Isabella Menezes">
+					<input type="text" id="username" th:field="*{username}" class="campo-input" placeholder="ex: Isabella Menezes">
 				</div>
 
 				<div class="campo">
 					<label for="input-senha" class="campo-label">Senha:</label>
-					<input type="password" id="senha" th:field="*{Senha}" class="campo-input" placeholder="••••••••">
+					<input type="password" id="senha" th:field="*{senha}" class="campo-input" placeholder="••••••••">
+				<p th:if="${usuario.id != null}" class="campo-senha"> Deixe a senha em branco se não quiser alterá-la. </p>
+				
 				</div>
 
 				<div class="campo">
@@ -58,12 +66,11 @@
 
 				<div class="grupo-botoes">
 					<button type="button" class="botao botao-cancelar">Cancelar</button>
-					<button type="submit" class="botao botao-salvar">Cadastrar Usuário</button>
+					<button type="submit" class="botao botao-salvar" th:text="${usuario.id != null} ? 'Atualizar Usuário' : 'Cadastrar Usuário'">Cadastrar Usuário</button>
 				</div>
 			</form>
 		</section>
-
 	</main>
-</body>
 
+</body>
 </html>
