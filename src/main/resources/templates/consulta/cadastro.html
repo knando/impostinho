@@ -12,9 +12,7 @@
 
 <body>
   
-    <div class="barra">
-        <span class="logo-texto"><span class="simbolo">+</span>Impostinho</span>
-    </div>
+    <header th:replace="~{fragments/util :: cabecalho}"></header>
 
     <div class="caixa">
         <h2>Cadastro de consulta</h2>
@@ -52,9 +50,7 @@
 		
 	
   
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Consultas</p>
-	</footer>
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
 	
 
 </body>

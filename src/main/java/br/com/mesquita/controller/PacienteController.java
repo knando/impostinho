@@ -28,7 +28,6 @@ public class PacienteController {
 	String listarPacientes(Model model) {
 		List<Paciente> listaPaciente = pacienteService.listar();
 		model.addAttribute("listaP", listaPaciente);
-		System.out.println(listaPaciente.get(0).getDataNascimento());
 		return "paciente/listar";
 	}
 	
