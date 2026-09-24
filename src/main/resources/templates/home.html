@@ -4,7 +4,7 @@
 
 	  <head>
 	  	<meta charset="UTF-8">
-	  	<title>Listagem de Pacientes</title>
+	  	<title>Impostinho</title>
 	  	<link rel="stylesheet" th:href="@{/css/base.css}">
 	  	<link rel="stylesheet" th:href="@{/css/layout.css}">
 	  	<link rel="stylesheet" th:href="@{/css/components.css}">
@@ -32,10 +32,22 @@
 
 	<div class="caixa">
 		
-<h2>Bem vindo ao Impostinho</h2>
-<br>
-<p>O unico posto medico Mundial</p>
-		
+		<h2>Bem vindo ao Impostinho</h2>
+		<br>
+		<p>O unico posto medico Mundial</p>
+		<br>
+		<p>nossos postos estão em cada esquina de todas as ruas</p>
+		<br>
+		<p>garantindo que você seja atendido com a maior rapidez possivel</p>
+		<br>
+		<p>fazemos coleta de sangue, exames de laboratorio, vacinas, ultrasons e cirurgias </p>
+		<br>
+		<p>fazemos agendamento local e a distancia</p>
+		<p>para agendamentos nos chame pelo numero +55 (51) 2729-7216</p>
+		<br>
+		<br>
+		<p>funcionamos das 6:00 até as 19:00</p>
+
 
 	</div>
   
@@ -43,9 +55,7 @@
   
  </div>
 	
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho</p>
-	</footer>
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
 
 </body>
 

@@ -8,12 +8,10 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
-	<header class="barra">
-		<div class="barra-conteudo">
-			<div class="logo"></div>
-			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-		</div>
-	</header>
+
+	
+	<header th:replace="~{fragments/util :: cabecalho}"></header>
+	
 
 	<div class="caixa">
 		<h2>Lista de médicos demitidos</h2>
@@ -34,8 +32,8 @@
 			</tr>
 		</table>
 	</div>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-	</footer>
+	
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>

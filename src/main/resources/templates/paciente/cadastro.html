@@ -8,12 +8,9 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
-	<header class="barra">
-		<div class="barra-conteudo">
-			<div class="logo"></div>
-			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-		</div>
-	</header>
+	
+	<header th:replace="~{fragments/util :: cabecalho}"></header>
+	
 	<main class="conteudo-principal">
 		<div class="formulario-conteiner">
 			<h2 class="titulo-form">Cadastro de Paciente</h2>
@@ -53,13 +50,13 @@
 				</div>
 				<div class="acoes">
 									<button type="submit" class="btn-salvar">Salvar</button>
-									<a th:href="@{/consulta/listar}" class="btn-cancelar">Cancelar</a>
+									<a th:href="@{/paciente/listar}" class="btn-cancelar">Cancelar</a>
 								</div>
 			</form>
 		</div>
 	</main>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-	</footer>
+	
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>
