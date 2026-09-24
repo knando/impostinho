@@ -13,6 +13,8 @@
 	
 	<main class="conteudo-principal">
 		
+		<div id="mensagem-erro" class="alert alert-erro" th:if="${mensagemErro}" th:text="${mensagemErro}"></div>
+		
 		<div class="formulario-conteiner">
 			<h2 class="titulo-form">Cadastro de Médico</h2>
 			<form th:action="@{salvar}" method="post" th:object="${medico}">
@@ -34,12 +36,12 @@
 						<input type="date" id="input-data_admissao" th:field="*{dataAdmissao}" placeholder="Digite a data admissional">
 					</div>
 					<div class="campo">
-						<label for="input-nome-usuario">Nome de Usuário: </label>
-						<input type="text" id="input-nome-usuario" th:field="*{usuario.username}" placeholder="Digite o nome de usuário">
+					    <label for="input-nome-usuario">Nome de Usuário: </label>
+					    <input type="text" id="input-nome-usuario" th:field="*{username}" placeholder="Digite o nome de usuário">
 					</div>
 					<div class="campo">
-						<label for="input-senha-usuario">Senha: </label>
-						<input type="text" id="input-senha-usuario" th:field="*{usuario.senha}" placeholder="Digite a senha de usuário">
+					    <label for="input-senha-usuario">Senha: </label>
+					    <input type="password" id="input-senha-usuario" th:field="*{senha}" placeholder="Digite a senha de usuário">
 					</div>
 				</div>
 				

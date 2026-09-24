@@ -38,27 +38,30 @@
 				 <input type="hidden" th:field="*{id}" />
 				
 				<div class="campo">
-					<label for="input-username" class="campo-label">Nome de Usuário:</label>
-					<input type="text" id="username" th:field="*{username}" class="campo-input" placeholder="ex: Isabella Menezes">
+				    <label for="input-nome" class="campo-label">Nome:</label>
+				    <input type="text" id="nome" th:field="*{nome}" class="campo-input" placeholder="ex: Isabella Menezes">
+				</div>
+
+				<div class="campo">
+				    <label for="input-username" class="campo-label">Nome de Usuário:</label>
+				    <input type="text" id="username" th:field="*{username}" class="campo-input" placeholder="ex: isabella.menezes">
 				</div>
 
 				<div class="campo">
 					<label for="input-senha" class="campo-label">Senha:</label>
 					<input type="password" id="senha" th:field="*{senha}" class="campo-input" placeholder="••••••••">
 				<p th:if="${usuario.id != null}" class="campo-senha"> Deixe a senha em branco se não quiser alterá-la. </p>
-				
+
 				</div>
 
 				<div class="campo">
-					<label class="opcao-checkbox" for="is_admin">
-						<input type="checkbox" id="is_admin" th:field="*{role}" value="ROLE_ADMIN"
-							class="opcao-checkbox-input">
-						<div class="opcao-checkbox-texto">
-							<span class="opcao-checkbox-titulo">Conceder acesso de Administrador</span>
-							<span class="opcao-checkbox-subtitulo">Este usuário poderá gerenciar outros usuários e
-								configurações</span>
-						</div>
-					</label>
+				    <label class="opcao-checkbox" for="is_admin">
+				        <input type="checkbox" id="is_admin" name="role" value="ROLE_ADMIN" class="opcao-checkbox-input">
+				        <div class="opcao-checkbox-texto">
+				            <span class="opcao-checkbox-titulo">Conceder acesso de Administrador</span>
+				            <span class="opcao-checkbox-subtitulo">Este usuário poderá gerenciar outros usuários e configurações</span>
+				        </div>
+				    </label>
 				</div>
 
 				<div class="grupo-botoes">
