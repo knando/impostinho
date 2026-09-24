@@ -40,7 +40,7 @@
 
 			<div class="campo">
 				<label>Data de Nascimento:</label>
-				<input type="text" th:field="*{dataNascimento}"/>
+				<input type="date" th:field="*{dataNascimento}" />
 			</div>
 			
 			<div class="campo">
@@ -50,7 +50,7 @@
 			
 			<div class="campo">
 				<label>Telefone:</label>
-				<input type="text" th:field="*{telefone}"/>
+				<input type="tel" th:field="*{telefone}" minlength="13" maxlength="13"/>
 			</div>
 			
 			<div class="campo">
@@ -71,8 +71,8 @@
 	</div>
 
 	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
-	</footer>
+			<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
+		</footer>
 
 </body>
 
