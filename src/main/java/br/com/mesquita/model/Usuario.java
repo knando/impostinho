@@ -17,6 +17,10 @@ public class Usuario {
 
 	private String role; // e.g., "ROLE_USER" or "ROLE_ADMIN"
 
+	public void setId(Long id) {
+		this.id =id;
+	}
+	
 	public Long getId() {
 		return id;
 	}

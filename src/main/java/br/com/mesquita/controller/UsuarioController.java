@@ -2,6 +2,7 @@ package br.com.mesquita.controller;
 
 import java.util.List;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,19 +31,22 @@ public class UsuarioController {
 		return "usuario/listar";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/cadastro")
 	String cadastrarUsuarios(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "usuario/cadastro";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/editar")
 	public String editarUsuario(@RequestParam("id") Long id, Model model) {
 		Usuario usuario = acessoUsuarioService.buscarPorId(id);
 		model.addAttribute("usuario", usuario);
-		return "usuario/editar";
+		return "usuario/cadastro";
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/salvar")
 	String SalvarUsuarios(@ModelAttribute Usuario usuario) {
 		acessoUsuarioService.salvar(usuario);
@@ -50,3 +54,4 @@ public class UsuarioController {
 	}
 
 }
+

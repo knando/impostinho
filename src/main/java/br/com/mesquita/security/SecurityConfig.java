@@ -25,17 +25,29 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless REST APIs
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/public/**", "/", "/css/**").permitAll() // Aberto
-                .requestMatchers("/api/admin/**", "/usuario/cadastro").hasRole("ADMIN")
+                .requestMatchers("/", "/css/**").permitAll()
+                .requestMatchers("/usuario/cadastro").hasRole("ADMIN")
                 .requestMatchers(PathRequest.toH2Console()).hasRole("ADMIN")
                 .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
-                .anyRequest().authenticated()                  // Todo o resto
+                .anyRequest().authenticated()
                 
+            )
+            .formLogin((form) -> form
+    			.loginPage("/login")
+    			.loginProcessingUrl("/perform_login")
+    			.defaultSuccessUrl("/", false)
+                .failureUrl("/login?error=true")
+    			.permitAll()
+    		)
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout=true")
+                .permitAll()
             )
             .headers(headers -> headers
                 .frameOptions(frame -> frame.sameOrigin())
             )
-            .httpBasic(Customizer.withDefaults()); // Enable HTTP Basic Auth
+            .httpBasic(basic -> basic.disable());
 
         return http.build();
     }
