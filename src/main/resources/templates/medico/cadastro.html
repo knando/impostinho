@@ -17,6 +17,8 @@
 	</header>
 	<main class="conteudo-principal">
 		
+		<div id="mensagem-erro" class="alert alert-erro" th:if="${mensagemErro}" th:text="${mensagemErro}"></div>
+		
 		<div class="formulario-conteiner">
 			<h2 class="titulo-form">Cadastro de Médico</h2>
 			<form th:action="@{salvar}" method="post" th:object="${medico}">

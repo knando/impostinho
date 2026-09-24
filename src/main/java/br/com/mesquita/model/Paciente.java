@@ -23,57 +23,85 @@ public class Paciente extends Usuario {
 	public Paciente() {
 	}
 
-	public Paciente(String nome, String cpf, LocalDate dataNascimento) {
-		this.setNome(nome);
+	public Paciente(String cpf, LocalDate dataNascimento) {
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Paciente(String cpf, LocalDate dataNascimento, String sexo, String endereco,
+			String telefone, String alergia) {
+		super();
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.alergia = alergia;
 	}
 
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
+	
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+	
 	public String getSexo() {
 		return sexo;
 	}
+	
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+	
 	public String getEndereco() {
 		return endereco;
 	}
+	
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
 	public String getTelefone() {
 		return telefone;
 	}
+	
 	public void setTelefone(String telefone) {
-		this.telefone = (telefone != null) ? telefone.replaceAll("\\D", "") : null;
+		if (telefone != null) {
+			this.telefone = telefone.replaceAll("\\D", "");
+		} else {
+			this.telefone = null;
+		}
 	}
+	
 	public String getAlergia() {
 		return alergia;
 	}
+	
 	public void setAlergia(String alergia) {
 		this.alergia = alergia;
 	}
+	
 	public String getCpfFormatada() {
 		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
+	
 	public String getDataNasc() {
 		if (dataNascimento == null) {
 			return "N/A";
 		}
 		return dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
+	
 	public String getFoneFormatado() {
 		if (this.telefone == null || this.telefone.length() != 13) {
 			return this.telefone;

@@ -2,8 +2,9 @@ package br.com.mesquita.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 import java.util.Set;
+
+import org.thymeleaf.util.StringUtils;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -29,61 +30,64 @@ public class Medico extends Usuario {
 	public Medico() {
 	}
 
-	public Medico(String cpf, String nome) {
+	public Medico(Set<String> especialidade, String cpf, LocalDate dataAdmissao) {
+		super();
+		this.especialidade = especialidade;
 		this.cpf = cpf;
-		this.setNome(nome);
+		this.dataAdmissao = dataAdmissao;
 	}
 
 	public Set<String> getEspecialidade() {
 		return especialidade;
 	}
+	
 	public void setEspecialidade(Set<String> especialidade) {
 		this.especialidade = especialidade;
 	}
+	
 	public String getCpf() {
 		return cpf;
 	}
+	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	
 	public LocalDate getDataAdmissao() {
 		return dataAdmissao;
 	}
+	
 	public String getDataAdmissaoFormatada() {
 		if (dataAdmissao == null) {
 			return "N/A";
 		}
 		return dataAdmissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
+	
 	public void setDataAdmissao(LocalDate dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
+	
 	public LocalDate getDataDemissao() {
 		return dataDemissao;
 	}
+	
 	public String getDataDemissaoFormatada() {
 		if (dataDemissao == null) {
 			return "N/A";
 		}
 		return dataDemissao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
+	
 	public void setDataDemissao(LocalDate dataDemissao) {
 		this.dataDemissao = dataDemissao;
 	}
+	
 	public String getCpfFormatada() {
 		return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Medico)) return false;
-		Medico medico = (Medico) o;
-		return Objects.equals(cpf, medico.cpf);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(cpf);
+	public boolean equals(Medico medico) {
+		return StringUtils.equals(this.getCpf(), medico.getCpf());
 	}
 }

@@ -33,7 +33,7 @@ public class Usuario {
 
 	@CreationTimestamp
 	@Column(updatable = false)
-	private LocalDateTime dataCriacao;
+	private LocalDateTime datacriacao;
 
 	@Column(nullable = false)
 	private boolean ativo = true;
@@ -44,39 +44,55 @@ public class Usuario {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	public String getSenha() {
 		return senha;
 	}
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
 	public String getRole() {
 		return role;
 	}
+	
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
 	public String getNome() {
 		return nome;
 	}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	public LocalDateTime getDataCriacao() {
-		return dataCriacao;
+		return datacriacao;
 	}
+
+	public void setDatacriacao(LocalDateTime dataCriacao) {
+		this.datacriacao = dataCriacao;
+	}
+
 	public boolean getAtivo() {
 		return ativo;
 	}
+	
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
