@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Lista de Usuários</title>
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	<link rel="stylesheet" th:href="@{/css/components.css}">
+</head>
+<body>
+	<header class="barra" style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+		<div class="barra-conteudo">
+			<div class="logo"></div>
+			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span>
+		</div>
+		<nav class="menu-sistema">
+		    <a th:href="@{/medico/listar}">Médicos</a>
+		    <a th:href="@{/consulta/listar}">Consultas</a>
+			<a th:href="@{/usuario/cadastro}">Cadastro</a>
+		</nav>
+	</header>
+	<main class="conteudo-principal">
+		<h2>Lista de Usuários</h2>
+		<div class="tabela-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Username</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="u : ${listaU}">
+						<td th:text="${u.username}"></td>
+						<td>
+						<a th:href="@{/usuario/editar(id=${u.id})}" class="btn-editar">Editar</a>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+	<footer class="rodape">
+			<p>&copy; 2026 Impostinho - Sistema de Gestão de Usuários</p>
+	</footer>
+</body>
+</html>
+
