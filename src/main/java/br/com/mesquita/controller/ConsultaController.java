@@ -56,4 +56,11 @@ public class ConsultaController {
 		consultaService.salvar(consulta, medicoId, pacienteId);
 		return "redirect:/consulta/listar";
 	}
+	
+	@GetMapping("/ficha")
+	public String ficha(Model model) {
+		List<Paciente> listaPaciente = pacienteService.listar();
+		model.addAttribute("listaP", listaPaciente);
+	return "consulta/ficha";
+	}
 }
