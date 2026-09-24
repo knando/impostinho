@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Listagem de Ficha</title>
+	<link rel="stylesheet" th:href="@{/css/base.css}">
+	<link rel="stylesheet" th:href="@{/css/layout.css}">
+	<link rel="stylesheet" th:href="@{/css/components.css}">
+</head>
+<body>
+	
+	<header th:replace="~{fragments/util :: cabecalho}"></header>
+	
+	<main class="conteudo-principal">
+		<h2>Ficha do paciente</h2>
+
+		<div class="tabela-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Paciente</th>
+						<th>CPF</th>
+						<th>Historico</th>
+						<th>Alergia</th>
+						<th>Medicamento</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="f : ${listaP}">
+						
+						
+						<td th:text="${f.nome}"></td>
+						<td th:text="${f.cpf}"></td>
+					    <td th:text="${f.historico}"></td>
+			            <td th:text="${f.alergia}"></td>
+						<td th:text="${f.medicamento}"></td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+		
+		<a th:href="@{/consulta/cadastro}" class="btn-salvar" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">+ Nova Ficha</a>
+		
+	</main>
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+</body>
+</html>

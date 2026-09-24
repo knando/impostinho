@@ -19,7 +19,9 @@ public class Paciente extends Usuario {
 	private String endereco;
 	private String telefone;
 	private String alergia;
-
+    private String historico;
+	private String medicamento;
+	
 	public Paciente() {
 	}
 
@@ -37,6 +39,39 @@ public class Paciente extends Usuario {
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.alergia = alergia;
+	}
+	
+	
+
+	public Paciente(Long id, String nome, String cpf, LocalDate dataNascimento, String sexo, String endereco,
+			String telefone, String alergia, String historico, String medicamento) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
+		this.sexo = sexo;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.alergia = alergia;
+		this.historico = historico;
+		this.medicamento = medicamento;
+	}
+
+	public String getHistorico() {
+		return historico;
+	}
+
+	public void setHistorico(String historico) {
+		this.historico = historico;
+	}
+
+	public String getMedicamento() {
+		return medicamento;
+	}
+
+	public void setMedicamento(String medicamento) {
+		this.medicamento = medicamento;
 	}
 
 	public String getCpf() {
