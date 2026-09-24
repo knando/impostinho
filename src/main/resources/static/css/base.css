@@ -35,7 +35,7 @@ body {
     --cor-fundo: darkseagreen;    /* fundo geral da página */
     --cor-fundo-card: #ffffff;    /* fundo de formulários/tabelas */
     --cor-fundo-rodape: #1c331c;
-    --cor-texto-rodape: #a5c4a5;
+    --cor-texto-rodape: #a5c4a5; 
  
     /* Bordas e estados */
     --cor-borda: #ccc;
