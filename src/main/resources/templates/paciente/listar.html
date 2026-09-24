@@ -10,17 +10,9 @@
 <body>
 
 
-	<header class="barra">
-	    <div class="barra-conteudo">
-	        <div class="logo"></div>
-	        <span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-	    </div>
-	    <nav class="menu-sistema">
-	        <a th:href="@{/medico/listar}">Médicos</a>
-	        <a th:href="@{/consulta/listar}">Consultas</a>
-			<a th:href="@{/paciente/cadastro}">Cadastro</a>
-	    </nav>
-	</header>
+
+	<header th:replace="~{fragments/util :: cabecalho}"></header>
+
 			
 	<main class="conteudo-principal">
 		<h2>Lista de Pacientes</h2>
@@ -58,8 +50,9 @@
 			</table>
 		</div>
 	</main>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Pacientes</p>
-	</footer>
+	<a th:href="@{/paciente/cadastro}" class="btn-salvar">+ Novo Paciente</a>
+	
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>

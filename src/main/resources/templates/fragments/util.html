@@ -1,0 +1,26 @@
+
+<header class="barra" th:fragment="cabecalho">
+	<div class="barra-conteudo">
+		<div class="logo"></div>
+		<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
+	</div>
+	<nav class="menu-sistema"  >
+		<a th:href="@{/medico/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')" >Médicos</a>
+		<a th:href="@{/paciente/listar}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Pacientes</a>
+		<a th:href="@{/consulta/listar}" sec:authorize="hasAnyRole('ADMIN','USUARIO','ATENDENTE')" >Consultas</a>
+		
+		<a th:href="@{/medico/listar/demitidos}" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">Demitidos</a>
+		<a th:href="@{/h2-console}" sec:authorize="hasRole('ADMIN')">H2 BD</a>
+		<a th:href="@{/logout}" sec:authorize="hasAnyRole('ADMIN','USUARIO','ATENDENTE')" >Logout</a>
+		
+
+	</nav>
+</header>
+
+<footer class="rodape" th:fragment="rodape">
+    <p>&copy; 2026 Impostinho - Sistema de Gestão de Consultas</p>
+</footer>
+	
+	
+
+

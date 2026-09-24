@@ -8,17 +8,17 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
-	<header class="barra">
-		<div class="barra-conteudo">
-			<span class="logo-texto"><span class="simbolo">+</span>Impos<span>tinho</span></span>
-		</div>
-	</header>
+	
+	<header th:replace="~{fragments/util :: cabecalho}"></header>
+	
 	<div class="caixa">
 		<h2>Editar Médico</h2>
 		<form th:action="@{/medico/salvar}" th:object="${medico}" method="post">
+			
 			<input type="hidden" th:field="*{id}" />
 			<input type="hidden" th:field="*{cpf}" />
 			<input type="hidden" th:field="*{dataAdmissao}" />
+			
 			<div class="campo">
 				<label>Nome:</label>
 				<input type="text" th:field="*{nome}" required />
@@ -41,8 +41,8 @@
 			</div>
 		</form>
 	</div>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
-	</footer>
+	
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>
