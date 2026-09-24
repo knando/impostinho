@@ -56,8 +56,7 @@
 
 	<a th:href="@{/medico/cadastro}" class="btn-salvar ">+ Novo Médico</a>
 	
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Médicos</p>
-	</footer>
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>

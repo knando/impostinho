@@ -37,8 +37,6 @@
 		<a th:href="@{/consulta/cadastro}" class="btn-salvar" sec:authorize="hasAnyRole('ADMIN','ATENDENTE')">+ Nova Consulta</a>
 		
 	</main>
-	<footer class="rodape">
-		<p>&copy; 2026 Impostinho - Sistema de Gestão de Consultas</p>
-	</footer>
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
 </body>
 </html>

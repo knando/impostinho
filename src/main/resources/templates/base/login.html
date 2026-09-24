@@ -9,6 +9,7 @@
 	<link rel="stylesheet" th:href="@{/css/components.css}">
 </head>
 <body>
+	
 	<header th:replace="~{fragments/util :: cabecalho}"></header>
 	
 	<div class="login-container">
@@ -33,6 +34,8 @@
 	        <button type="submit" class="btn">Entrar</button>
 	    </form>
 	</div>
-
+	
+	<footer th:replace="~{fragments/util :: rodape}"></footer>
+	
 </body>
 </html>
